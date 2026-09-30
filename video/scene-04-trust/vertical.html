@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scene 4 – Trust Points (9:16)</title>
+<!--
+  Vertical 1080x1920 cut for social / ads. 10s total:
+    0.0–2.5s  intro: logo + "Your Patio's Golden Age Starts Now"
+    2.5–5.0s  photo 1 · "Licensed & insured"
+    5.0–7.5s  photo 2 · "Built by our own crews"
+    7.5–10s   photo 3 · "Free estimates"
+
+  Assets: photos/1.jpg, 2.jpg, 3.jpg and logo.png (transparent PNG or SVG
+  renamed to logo.png). Missing logo shows a placeholder box.
+
+  ?t=3.5 freezes at 3.5s · ?render=1 hides controls for frame capture.
+  Text is kept out of the top ~12% and bottom ~20% where Reels/TikTok UI sits.
+-->
+<style>
+  :root {
+    --bg: #0f1113;
+    --ink: #ffffff;
+    --gold: #e0a526;
+    --caption-bg: rgba(15, 17, 19, 0.82);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: #000; }
+  body {
+    display: grid;
+    place-items: center;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .stage {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    background: var(--bg);
+    overflow: hidden;
+    transform-origin: center;
+    flex: none;
+  }
+
+  /* ---------- intro ---------- */
+  .intro {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+    padding: 0 90px 120px;
+    background: radial-gradient(ellipse at 50% 42%, #2a2414 0%, var(--bg) 62%);
+    z-index: 1;
+    animation: fade-out 350ms linear 2300ms forwards;
+  }
+  .logo {
+    width: 560px;
+    height: 360px;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    transform: scale(.85);
+    animation: pop-in 700ms cubic-bezier(.2,.8,.2,1) 150ms forwards;
+  }
+  .logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .logo.missing {
+    border: 4px dashed rgba(224,165,38,.6);
+    border-radius: 24px;
+    color: rgba(224,165,38,.8);
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: .12em;
+  }
+  .headline {
+    color: var(--ink);
+    font-size: 104px;
+    font-weight: 800;
+    line-height: 1.08;
+    text-align: center;
+    letter-spacing: -.01em;
+  }
+  .headline span {
+    display: block;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: rise-in 600ms cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .headline span:nth-child(1) { animation-delay: 550ms; }
+  .headline span:nth-child(2) { animation-delay: 750ms; color: var(--gold); }
+  .headline span:nth-child(3) { animation-delay: 950ms; }
+
+  /* ---------- photo slides ---------- */
+  .slide {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    animation: fade-in 400ms linear forwards;
+  }
+  .slide.s1 { animation-delay: 2300ms; z-index: 2; }
+  .slide.s2 { animation-delay: 4800ms; z-index: 3; }
+  .slide.s3 { animation-delay: 7300ms; z-index: 4; }
+
+  .photo {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    animation: ken-burns 2900ms linear forwards;
+  }
+  .slide.s1 .photo { animation-delay: 2300ms; }
+  .slide.s2 .photo { animation-delay: 4800ms; }
+  .slide.s3 .photo { animation-delay: 7300ms; animation-duration: 2700ms; }
+
+  .placeholder {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: rgba(255,255,255,.35);
+    font-size: 40px;
+    text-transform: uppercase;
+    background: linear-gradient(160deg, #3a3f45, #1c1f22);
+  }
+
+  /* darken the lower half so the caption always reads */
+  .slide::after {
+    content: "";
+    position: absolute;
+    inset: 45% 0 0 0;
+    background: linear-gradient(to bottom, transparent, var(--caption-bg) 55%);
+  }
+
+  .caption {
+    position: absolute;
+    left: 70px; right: 70px;
+    bottom: 430px;              /* clear of the bottom ~20% social UI */
+    z-index: 1;
+    color: var(--ink);
+    font-size: 96px;
+    font-weight: 800;
+    line-height: 1.05;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: rise-in 550ms cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .caption::before {
+    content: "";
+    display: block;
+    width: 110px;
+    height: 10px;
+    margin: 0 auto 34px;
+    border-radius: 5px;
+    background: var(--gold);
+  }
+  .slide.s1 .caption { animation-delay: 2650ms; }
+  .slide.s2 .caption { animation-delay: 5150ms; }
+  .slide.s3 .caption { animation-delay: 7650ms; }
+
+  /* small logo mark on the photo slides */
+  .mark {
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    width: 260px;
+    height: 120px;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    animation: fade-in 400ms linear 2500ms forwards;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,.5));
+  }
+  .mark img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .mark.missing { display: none; }
+
+  .fade {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    animation: fade-in 400ms linear 9600ms forwards;
+  }
+
+  @keyframes fade-in   { to { opacity: 1; } }
+  @keyframes fade-out  { to { opacity: 0; } }
+  @keyframes pop-in    { to { opacity: 1; transform: none; } }
+  @keyframes rise-in   { to { opacity: 1; transform: none; } }
+  @keyframes ken-burns { from { transform: scale(1.0); } to { transform: scale(1.1); } }
+
+  .controls {
+    position: fixed;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    font: 14px/1 ui-monospace, Menlo, monospace;
+    backdrop-filter: blur(6px);
+  }
+  .controls button {
+    border: 0;
+    border-radius: 999px;
+    padding: 6px 12px;
+    background: #fff;
+    color: #000;
+    font: inherit;
+    cursor: pointer;
+  }
+  .controls input { width: min(300px, 50vw); }
+  body.render .controls { display: none; }
+</style>
+</head>
+<body>
+  <div class="stage" id="stage">
+    <div class="intro">
+      <div class="logo" data-logo></div>
+      <h1 class="headline">
+        <span>Your Patio's</span>
+        <span>Golden Age</span>
+        <span>Starts Now</span>
+      </h1>
+    </div>
+
+    <div class="slide s1" data-photo="photos/1.jpg" data-label="Photo 1">
+      <div class="photo"></div>
+      <div class="caption">Licensed &amp; insured</div>
+    </div>
+    <div class="slide s2" data-photo="photos/2.jpg" data-label="Photo 2">
+      <div class="photo"></div>
+      <div class="caption">Built by our own crews</div>
+    </div>
+    <div class="slide s3" data-photo="photos/3.jpg" data-label="Photo 3">
+      <div class="photo"></div>
+      <div class="caption">Free estimates</div>
+    </div>
+
+    <div class="mark" data-logo></div>
+    <div class="fade"></div>
+  </div>
+
+  <div class="controls">
+    <button id="play">Pause</button>
+    <input id="scrub" type="range" min="0" max="10000" step="10" value="0">
+    <span id="clock">0.00s</span>
+  </div>
+
+<script>
+  const SCENE_MS = 10000;
+  const LOGO = 'logo.png';
+  const params = new URLSearchParams(location.search);
+  const stage = document.getElementById('stage');
+
+  document.querySelectorAll('.slide').forEach(slide => {
+    const photo = slide.querySelector('.photo');
+    const img = new Image();
+    img.onload = () => { photo.style.backgroundImage = `url("${slide.dataset.photo}")`; };
+    img.onerror = () => {
+      const ph = document.createElement('div');
+      ph.className = 'placeholder';
+      ph.textContent = slide.dataset.label;
+      photo.appendChild(ph);
+    };
+    img.src = slide.dataset.photo;
+  });
+
+  // Logo in the intro and as a small mark over the photos.
+  const logo = new Image();
+  logo.onload = () => document.querySelectorAll('[data-logo]').forEach(el => {
+    const img = document.createElement('img');
+    img.src = LOGO;
+    img.alt = 'Logo';
+    el.appendChild(img);
+  });
+  logo.onerror = () => document.querySelectorAll('[data-logo]').forEach(el => {
+    el.classList.add('missing');
+    if (el.classList.contains('logo')) el.textContent = 'LOGO';
+  });
+  logo.src = LOGO;
+
+  function fit() {
+    const s = Math.min(innerWidth / 1080, innerHeight / 1920);
+    stage.style.transform = `scale(${s})`;
+  }
+  addEventListener('resize', fit);
+  fit();
+
+  const anims = () => stage.getAnimations({ subtree: true });
+  const clock = document.getElementById('clock');
+  const scrub = document.getElementById('scrub');
+  const playBtn = document.getElementById('play');
+  let playing = true;
+
+  function seek(sec) {
+    const ms = Math.max(0, Math.min(SCENE_MS, sec * 1000));
+    anims().forEach(a => { a.pause(); a.currentTime = ms; });
+    show(ms);
+  }
+  function show(ms) {
+    scrub.value = ms;
+    clock.textContent = (ms / 1000).toFixed(2) + 's';
+  }
+  window.seek = seek;
+
+  playBtn.onclick = () => {
+    if (playing) {
+      anims().forEach(a => a.pause());
+    } else {
+      const t = +scrub.value >= SCENE_MS ? 0 : +scrub.value;
+      anims().forEach(a => { a.currentTime = t; a.play(); });
+    }
+    playing = !playing;
+    playBtn.textContent = playing ? 'Pause' : 'Play';
+  };
+  scrub.oninput = () => {
+    playing = false;
+    playBtn.textContent = 'Play';
+    seek(scrub.value / 1000);
+  };
+
+  // The final fade ends at 10s, so its clock is the scene clock.
+  const master = stage.querySelector('.fade').getAnimations()[0];
+  (function tick() {
+    if (playing) show(Math.min(SCENE_MS, master.currentTime));
+    requestAnimationFrame(tick);
+  })();
+
+  if (params.has('render')) document.body.classList.add('render');
+  if (params.has('t')) { playing = false; playBtn.textContent = 'Play'; seek(parseFloat(params.get('t'))); }
+</script>
+</body>
+</html>
