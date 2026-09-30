@@ -1,6 +1,6 @@
 // Renders the scene to MP4 at 30fps (needs playwright + ffmpeg).
 //   node render.mjs            -> scene-04-trust.mp4           (16:9, 1920x1080, 8s)
-//   node render.mjs vertical   -> scene-04-trust-vertical.mp4  (9:16, 1080x1920, 10s)
+//   node render.mjs vertical   -> scene-04-trust-vertical.mp4  (9:16, 1080x1920, 14s)
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -8,7 +8,7 @@ import path from 'node:path';
 
 const FORMATS = {
   wide:     { page: 'index.html',    width: 1920, height: 1080, seconds: 8,  out: 'scene-04-trust.mp4' },
-  vertical: { page: 'vertical.html', width: 1080, height: 1920, seconds: 10, out: 'scene-04-trust-vertical.mp4' },
+  vertical: { page: 'vertical.html', width: 1080, height: 1920, seconds: 14, out: 'scene-04-trust-vertical.mp4' },
 };
 const FPS = 30;
 const fmt = FORMATS[process.argv[2] || 'wide'];
@@ -21,6 +21,7 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: fmt.width, height: fmt.height } });
 await page.goto(pathToFileURL(path.join(dir, fmt.page)).href + '?render=1&t=0');
 await page.waitForLoadState('networkidle');
+await page.evaluate(() => document.fonts.ready);
 
 const ffmpeg = spawn('ffmpeg', [
   '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-',
