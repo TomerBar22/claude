@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scene 4 – Trust Points</title>
+<!--
+  Scene 4 · 17s–25s (8s) · three photos, one line each:
+    1. "Licensed & insured"
+    2. "Built by our own crews"
+    3. "Free estimates"
+
+  Photos: drop files into ./photos/ named 1.jpg, 2.jpg, 3.jpg.
+  Missing photos fall back to a labelled placeholder.
+
+  Playback controls:
+    ?t=3.5      freeze at 3.5s into the scene (20.5s in the full video)
+    ?render=1   hide controls, expose window.seek(sec) for frame capture
+-->
+<style>
+  :root {
+    --bg: #0f1113;
+    --ink: #ffffff;
+    --accent: #e0a526;          /* warm gold */
+    --caption-bg: rgba(15, 17, 19, 0.78);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: #000; }
+  body {
+    display: grid;
+    place-items: center;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* 1920x1080 stage, scaled to fit the window */
+  .stage {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    background: var(--bg);
+    overflow: hidden;
+    transform-origin: center;
+  }
+
+  .row {
+    position: absolute;
+    inset: 90px 90px 90px 90px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+
+  .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #222;
+    opacity: 0;
+    transform: translateY(60px) scale(0.96);
+    animation: card-in 700ms cubic-bezier(.2,.8,.2,1) forwards;
+    box-shadow: 0 30px 60px rgba(0,0,0,.45);
+  }
+  .card:nth-child(1) { animation-delay: 0ms; }
+  .card:nth-child(2) { animation-delay: 1800ms; }
+  .card:nth-child(3) { animation-delay: 3600ms; }
+
+  .photo {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    animation: ken-burns 8000ms linear forwards;
+  }
+  .card:nth-child(2) .photo { animation-delay: 1800ms; animation-duration: 6200ms; }
+  .card:nth-child(3) .photo { animation-delay: 3600ms; animation-duration: 4400ms; }
+
+  .placeholder {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: rgba(255,255,255,.35);
+    font-size: 28px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    background: linear-gradient(160deg, #3a3f45, #1c1f22);
+  }
+
+  .caption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 34px 32px 38px;
+    background: linear-gradient(to top, var(--caption-bg) 60%, transparent);
+    color: var(--ink);
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: caption-in 550ms cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .caption::before {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 6px;
+    margin: 0 auto 18px;
+    border-radius: 3px;
+    background: var(--accent);
+  }
+  .card:nth-child(1) .caption { animation-delay: 400ms; }
+  .card:nth-child(2) .caption { animation-delay: 2200ms; }
+  .card:nth-child(3) .caption { animation-delay: 4000ms; }
+
+  /* soft fade to black in the last 400ms for the cut into scene 5 */
+  .fade {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    animation: fade-out 400ms linear 7600ms forwards;
+  }
+
+  @keyframes card-in    { to { opacity: 1; transform: none; } }
+  @keyframes caption-in { to { opacity: 1; transform: none; } }
+  @keyframes ken-burns  { from { transform: scale(1.0); } to { transform: scale(1.12); } }
+  @keyframes fade-out   { to { opacity: 1; } }
+
+  /* review controls */
+  .controls {
+    position: fixed;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    font: 14px/1 ui-monospace, Menlo, monospace;
+    backdrop-filter: blur(6px);
+  }
+  .controls button {
+    border: 0;
+    border-radius: 999px;
+    padding: 6px 12px;
+    background: #fff;
+    color: #000;
+    font: inherit;
+    cursor: pointer;
+  }
+  .controls input { width: min(360px, 50vw); }
+  body.render .controls { display: none; }
+</style>
+</head>
+<body>
+  <div class="stage" id="stage">
+    <div class="row">
+      <div class="card" data-photo="photos/1.jpg" data-label="Photo 1 · licensed / insured">
+        <div class="photo"></div>
+        <div class="caption">Licensed &amp; insured</div>
+      </div>
+      <div class="card" data-photo="photos/2.jpg" data-label="Photo 2 · crew at work">
+        <div class="photo"></div>
+        <div class="caption">Built by our own crews</div>
+      </div>
+      <div class="card" data-photo="photos/3.jpg" data-label="Photo 3 · estimate / handshake">
+        <div class="photo"></div>
+        <div class="caption">Free estimates</div>
+      </div>
+    </div>
+    <div class="fade"></div>
+  </div>
+
+  <div class="controls">
+    <button id="play">Pause</button>
+    <input id="scrub" type="range" min="0" max="8000" step="10" value="0">
+    <span id="clock">17.00s</span>
+  </div>
+
+<script>
+  const SCENE_MS = 8000;
+  const SCENE_START_S = 17;
+  const params = new URLSearchParams(location.search);
+  const stage = document.getElementById('stage');
+
+  // Load each photo; keep a placeholder if the file is missing.
+  document.querySelectorAll('.card').forEach(card => {
+    const photo = card.querySelector('.photo');
+    const img = new Image();
+    img.onload = () => { photo.style.backgroundImage = `url("${card.dataset.photo}")`; };
+    img.onerror = () => {
+      const ph = document.createElement('div');
+      ph.className = 'placeholder';
+      ph.textContent = card.dataset.label;
+      photo.appendChild(ph);
+    };
+    img.src = card.dataset.photo;
+  });
+
+  // Scale the 1920x1080 stage to the viewport.
+  function fit() {
+    const s = Math.min(innerWidth / 1920, innerHeight / 1080);
+    stage.style.transform = `scale(${s})`;
+  }
+  addEventListener('resize', fit);
+  fit();
+
+  // Timeline control through the Web Animations API.
+  const anims = () => stage.getAnimations({ subtree: true });
+  const clock = document.getElementById('clock');
+  const scrub = document.getElementById('scrub');
+  const playBtn = document.getElementById('play');
+  let playing = true;
+
+  function seek(sec) {
+    const ms = Math.max(0, Math.min(SCENE_MS, sec * 1000));
+    anims().forEach(a => { a.pause(); a.currentTime = ms; });
+    show(ms);
+  }
+  function show(ms) {
+    scrub.value = ms;
+    clock.textContent = (SCENE_START_S + ms / 1000).toFixed(2) + 's';
+  }
+  window.seek = seek;
+
+  playBtn.onclick = () => {
+    if (playing) {
+      anims().forEach(a => a.pause());
+    } else {
+      const t = +scrub.value >= SCENE_MS ? 0 : +scrub.value;
+      anims().forEach(a => { a.currentTime = t; a.play(); });
+    }
+    playing = !playing;
+    playBtn.textContent = playing ? 'Pause' : 'Play';
+  };
+  scrub.oninput = () => {
+    playing = false;
+    playBtn.textContent = 'Play';
+    seek(scrub.value / 1000);
+  };
+
+  // The fade animation spans the full scene, so its clock is the scene clock.
+  const master = stage.querySelector('.fade').getAnimations()[0];
+  (function tick() {
+    if (playing) show(Math.min(SCENE_MS, master.currentTime));
+    requestAnimationFrame(tick);
+  })();
+
+  if (params.has('render')) document.body.classList.add('render');
+  if (params.has('t')) { playing = false; playBtn.textContent = 'Play'; seek(parseFloat(params.get('t'))); }
+</script>
+</body>
+</html>
