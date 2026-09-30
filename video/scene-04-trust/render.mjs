@@ -1,6 +1,7 @@
 // Renders the scene to MP4 at 30fps (needs playwright + ffmpeg).
 //   node render.mjs            -> scene-04-trust.mp4           (16:9, 1920x1080, 8s)
-//   node render.mjs vertical   -> scene-04-trust-vertical.mp4  (9:16, 1080x1920, 14s)
+//   node render.mjs vertical   -> scene-04-trust-vertical.mp4  (9:16, 1080x1920, 14s, with music)
+// The music is music/track.wav, made by `python3 music/compose.py`.
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -8,7 +9,7 @@ import path from 'node:path';
 
 const FORMATS = {
   wide:     { page: 'index.html',    width: 1920, height: 1080, seconds: 8,  out: 'scene-04-trust.mp4' },
-  vertical: { page: 'vertical.html', width: 1080, height: 1920, seconds: 14, out: 'scene-04-trust-vertical.mp4' },
+  vertical: { page: 'vertical.html', width: 1080, height: 1920, seconds: 14, out: 'scene-04-trust-vertical.mp4', music: 'music/track.wav' },
 };
 const FPS = 30;
 const fmt = FORMATS[process.argv[2] || 'wide'];
@@ -23,8 +24,16 @@ await page.goto(pathToFileURL(path.join(dir, fmt.page)).href + '?render=1&t=0');
 await page.waitForLoadState('networkidle');
 await page.evaluate(() => document.fonts.ready);
 
+// Music gets a touch of room and is mastered to -14 LUFS, the level most social platforms normalize to.
+const audio = fmt.music ? [
+  '-i', path.join(dir, fmt.music),
+  '-map', '0:v', '-map', '1:a',
+  '-af', 'aecho=0.8:0.6:45|90:0.18|0.1,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000',
+  '-c:a', 'aac', '-b:a', '192k', '-shortest',
+] : [];
 const ffmpeg = spawn('ffmpeg', [
   '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-',
+  ...audio,
   '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-movflags', '+faststart', out,
 ], { stdio: ['pipe', 'inherit', 'inherit'] });
 
