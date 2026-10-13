@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Golden Patio Restoration — Alumawood</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      /* Brand type: Playfair Display (guide headings) + Jost (stand-in for licensed Proxima Nova) */
+      @font-face { font-family: "Playfair Display"; src: url("assets/fonts/playfair-display-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+      @font-face { font-family: "Playfair Display"; src: url("assets/fonts/playfair-display-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+      @font-face { font-family: "Playfair Display"; src: url("assets/fonts/playfair-display-latin-900-normal.woff2") format("woff2"); font-weight: 900; }
+      @font-face { font-family: "Jost"; src: url("assets/fonts/jost-latin-400-normal.woff2") format("woff2"); font-weight: 400; }
+      @font-face { font-family: "Jost"; src: url("assets/fonts/jost-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+      @font-face { font-family: "Jost"; src: url("assets/fonts/jost-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+
+      /* Brand palette (Guidelines §06) */
+      :root {
+        --gold: #b18b2e;
+        --light-gold: #d8b55b;
+        --charcoal: #3d3527;
+        --ivory: #faf7f5;
+        --sand: #f5eddc;
+        --taupe: #92897d;
+        --gold-grad: linear-gradient(90deg, #b18b2e 0%, #d8b55b 100%);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--charcoal); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Jost", sans-serif; color: var(--ivory); }
+      .clip { position: absolute; inset: 0; }
+      .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .kb { position: absolute; inset: 0; overflow: hidden; }
+      .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(61,53,39,0.80) 0%, rgba(61,53,39,0.10) 22%, rgba(61,53,39,0.10) 45%, rgba(40,34,24,0.92) 100%); }
+
+      /* Logo bug — reversed compact horizontal lockup */
+      .bug { position: absolute; top: 110px; left: 72px; width: 330px; }
+      .bug img { display: block; width: 100%; height: auto; }
+
+      /* Reason cards */
+      .card { position: absolute; left: 72px; right: 72px; bottom: 300px; }
+      .num { display: block; width: 116px; height: 116px; border-radius: 58px; background: var(--gold-grad); color: var(--charcoal); font-family: "Playfair Display"; font-weight: 900; font-size: 64px; line-height: 112px; text-align: center; margin-bottom: 34px; }
+      .eyebrow { font-weight: 600; font-size: 32px; letter-spacing: 0.32em; color: var(--light-gold); margin-bottom: 18px; }
+      .headline { font-family: "Playfair Display"; font-weight: 800; font-size: 100px; line-height: 1.02; letter-spacing: -0.01em; }
+      .headline em { font-style: normal; color: var(--light-gold); }
+      .rule { display: block; width: 140px; height: 6px; background: var(--gold-grad); margin: 36px 0 30px; transform-origin: left center; }
+      .sub { font-weight: 400; font-size: 44px; line-height: 1.3; color: var(--sand); }
+
+      /* Hook */
+      .hook { position: absolute; left: 72px; right: 72px; top: 620px; }
+      .hook .headline { font-size: 128px; }
+      .hook .eyebrow { margin-bottom: 30px; }
+
+      /* Solution */
+      .solution { background: var(--charcoal); }
+      .sol-inner { position: absolute; left: 72px; right: 72px; top: 300px; }
+      .sol-mark { width: 200px; margin-bottom: 60px; }
+      .sol-mark img { display: block; width: 100%; height: auto; }
+      .sol-title { font-family: "Playfair Display"; font-weight: 800; font-size: 136px; line-height: 1.0; letter-spacing: -0.01em; }
+      .sol-title span { display: block; color: var(--light-gold); }
+      .sol-tag { font-size: 46px; color: var(--sand); }
+      .checks { margin-top: 84px; display: flex; flex-direction: column; gap: 44px; }
+      .check { display: flex; align-items: center; gap: 34px; font-weight: 500; font-size: 54px; color: var(--ivory); }
+      .tick { flex: 0 0 auto; width: 84px; height: 84px; border-radius: 42px; background: var(--gold-grad); display: grid; place-items: center; }
+      .tick svg { width: 44px; height: 44px; }
+
+      /* CTA */
+      .cta { background: var(--charcoal); }
+      .cta-frame { position: absolute; inset: 56px; border: 2px solid rgba(216,181,91,0.45); }
+      .cta-inner { position: absolute; left: 72px; right: 72px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+      .cta-logo { width: 760px; }
+      .cta-logo img { display: block; width: 100%; height: auto; }
+      .cta-rule { width: 140px; height: 6px; background: var(--gold-grad); margin: 90px 0 60px; }
+      .cta-ask { font-family: "Playfair Display"; font-weight: 700; font-size: 72px; line-height: 1.15; color: var(--ivory); }
+      .cta-ask em { font-style: normal; color: var(--light-gold); }
+      .cta-phone { margin-top: 64px; background: var(--gold-grad); color: var(--charcoal); font-family: "Jost"; font-weight: 600; font-size: 88px; letter-spacing: 0.02em; padding: 26px 64px; border-radius: 999px; }
+      .cta-fine { margin-top: 60px; font-weight: 500; font-size: 32px; letter-spacing: 0.28em; color: var(--taupe); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
+
+      <!-- MEDIA (track 0) -->
+      <video id="v-hook" class="clip bg" src="assets/clip2.mp4" muted playsinline data-start="0" data-duration="3.4" data-media-start="0" data-track-index="0"></video>
+      <div id="s2-media" class="clip kb" data-start="3.4" data-duration="4.2" data-track-index="0" data-layout-allow-overflow><img id="p1" class="bg" src="assets/photo1.jpg" alt="Peeling painted wood beam" /></div>
+      <video id="v-crack" class="clip bg" src="assets/clip1.mp4" muted playsinline data-start="7.6" data-duration="4.2" data-media-start="0" data-track-index="0"></video>
+      <div id="s4-media" class="clip kb" data-start="11.8" data-duration="4.2" data-track-index="0" data-layout-allow-overflow><img id="p2" class="bg" src="assets/photo2.jpg" alt="Water stains and rot on wood beam" /></div>
+
+      <!-- SHADE over footage (track 1) -->
+      <div id="shade" class="clip shade" data-start="0" data-duration="16" data-track-index="1"></div>
+      <div id="hook-dim" class="clip" data-start="0" data-duration="3.4" data-track-index="1" style="background: rgba(61,53,39,0.62)"></div>
+
+      <!-- LOGO BUG (track 2) -->
+      <div id="bug-wrap" class="clip" data-start="0" data-duration="16" data-track-index="2">
+        <div class="bug" id="bug"><img src="assets/brand/logo-compact-h-reversed.png" alt="Golden Patio" /></div>
+      </div>
+
+      <!-- TEXT (track 3) -->
+      <section id="s1" class="clip" data-start="0" data-duration="3.4" data-track-index="3">
+        <div class="hook">
+          <div class="eyebrow" id="s1-e">HOMEOWNERS</div>
+          <h1 class="headline" id="s1-h">Is your wood patio <em>falling apart?</em></h1>
+        </div>
+      </section>
+
+      <section id="s2" class="clip" data-start="3.4" data-duration="4.2" data-track-index="3">
+        <div class="card">
+          <span class="num" id="s2-n">1</span>
+          <h2 class="headline" id="s2-h">Tired of <em>painting it</em> again?</h2>
+          <span class="rule" id="s2-r"></span>
+          <p class="sub" id="s2-s">Sand, prime, repaint… and it peels all over again.</p>
+        </div>
+      </section>
+
+      <section id="s3" class="clip" data-start="7.6" data-duration="4.2" data-track-index="3">
+        <div class="card">
+          <span class="num" id="s3-n">2</span>
+          <h2 class="headline" id="s3-h">It's starting to <em>crack.</em></h2>
+          <span class="rule" id="s3-r"></span>
+          <p class="sub" id="s3-s">Sun and weather split wood beams wide open.</p>
+        </div>
+      </section>
+
+      <section id="s4" class="clip" data-start="11.8" data-duration="4.2" data-track-index="3">
+        <div class="card">
+          <span class="num" id="s4-n">3</span>
+          <h2 class="headline" id="s4-h"><em>Water damage</em> &amp; mold.</h2>
+          <span class="rule" id="s4-r"></span>
+          <p class="sub" id="s4-s">Stains, rot and rust that only get worse.</p>
+        </div>
+      </section>
+
+      <!-- SOLUTION -->
+      <section id="s5" class="clip solution" data-start="16" data-duration="4.4" data-track-index="3">
+        <div class="sol-inner">
+          <div class="sol-mark" id="s5-m"><img src="assets/brand/mark-gold.png" alt="" /></div>
+          <div class="eyebrow" id="s5-e">THE FIX</div>
+          <h2 class="sol-title" id="s5-t">Upgrade to <span>Alumawood.</span></h2>
+          <span class="rule" id="s5-r"></span>
+          <p class="sol-tag" id="s5-g">The look of wood. The strength of aluminum.</p>
+          <div class="checks">
+            <div class="check" id="c1"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>No more painting</div>
+            <div class="check" id="c2"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>Won't crack, rot or warp</div>
+            <div class="check" id="c3"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>No water damage or mold</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="s6" class="clip cta" data-start="20.4" data-duration="3.6" data-track-index="3">
+        <div class="cta-frame" id="s6-frame"></div>
+        <div class="cta-inner">
+          <div class="cta-logo" id="s6-logo"><img src="assets/brand/logo-primary-reversed.png" alt="Golden Patio Restoration" /></div>
+          <div class="cta-rule" id="s6-rule"></div>
+          <div class="cta-ask" id="s6-ask">Get your <em>free</em> Alumawood estimate</div>
+          <div class="cta-phone" id="s6-phone">818-348-3743</div>
+          <div class="cta-fine" id="s6-fine">LIC. 971127</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const out = "power3.out";
+      // Logos reveal with a wipe, never a fade (guide §05: no reduced opacity on the mark)
+      const wipe = (sel, t, d = 0.7) =>
+        tl.fromTo(sel, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: d, ease: "power2.inOut" }, t);
+
+      // Ken Burns on stills
+      tl.fromTo("#p1", { scale: 1.0, yPercent: 0 }, { scale: 1.14, yPercent: -3, duration: 4.2, ease: "none" }, 3.4);
+      tl.fromTo("#p2", { scale: 1.16, xPercent: 2 }, { scale: 1.02, xPercent: -2, duration: 4.2, ease: "none" }, 11.8);
+
+      // Logo bug
+      wipe("#bug", 0.2);
+
+      // Hook
+      tl.fromTo("#s1-e", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: out }, 0.25);
+      tl.fromTo("#s1-h", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.7, ease: out }, 0.45);
+      tl.to(["#s1-e", "#s1-h"], { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, 3.1);
+
+      // Reason cards
+      function reason(p, t0) {
+        tl.fromTo(`#${p}-n`, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, t0 + 0.1);
+        tl.fromTo(`#${p}-h`, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: out }, t0 + 0.25);
+        tl.fromTo(`#${p}-r`, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, t0 + 0.55);
+        tl.fromTo(`#${p}-s`, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: out }, t0 + 0.7);
+        tl.to([`#${p}-n`, `#${p}-h`, `#${p}-r`, `#${p}-s`], { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" }, t0 + 3.9);
+      }
+      reason("s2", 3.4);
+      reason("s3", 7.6);
+      reason("s4", 11.8);
+
+      // Solution
+      wipe("#s5-m", 16.05, 0.6);
+      tl.fromTo("#s5-e", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: out }, 16.3);
+      tl.fromTo("#s5-t", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.7, ease: out }, 16.45);
+      tl.fromTo("#s5-r", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 16.85);
+      tl.fromTo("#s5-g", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 16.95);
+      ["#c1", "#c2", "#c3"].forEach((c, i) => {
+        tl.fromTo(c, { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: out }, 17.35 + i * 0.4);
+      });
+
+      // CTA
+      tl.fromTo("#s6-frame", { scale: 1.04, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: out }, 20.4);
+      wipe("#s6-logo", 20.5, 0.8);
+      tl.fromTo("#s6-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 21.0);
+      tl.fromTo("#s6-ask", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: out }, 21.15);
+      tl.fromTo("#s6-phone", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 21.45);
+      tl.fromTo("#s6-fine", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 21.85);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
