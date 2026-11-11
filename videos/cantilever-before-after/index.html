@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Golden Patio Restoration — Before &amp; After</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      /* Brand type: Playfair Display (guide headings) + Jost (stand-in for licensed Proxima Nova) */
+      @font-face { font-family: "Playfair Display"; src: url("assets/fonts/playfair-display-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+      @font-face { font-family: "Playfair Display"; src: url("assets/fonts/playfair-display-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+      @font-face { font-family: "Playfair Display"; src: url("assets/fonts/playfair-display-latin-900-normal.woff2") format("woff2"); font-weight: 900; }
+      @font-face { font-family: "Jost"; src: url("assets/fonts/jost-latin-400-normal.woff2") format("woff2"); font-weight: 400; }
+      @font-face { font-family: "Jost"; src: url("assets/fonts/jost-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+      @font-face { font-family: "Jost"; src: url("assets/fonts/jost-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+
+      :root {
+        --gold: #b18b2e;
+        --light-gold: #d8b55b;
+        --charcoal: #3d3527;
+        --ivory: #faf7f5;
+        --sand: #f5eddc;
+        --taupe: #92897d;
+        --gold-grad: linear-gradient(90deg, #b18b2e 0%, #d8b55b 100%);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--charcoal); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Jost", sans-serif; color: var(--ivory); }
+      .clip { position: absolute; inset: 0; }
+      .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .stage { position: absolute; inset: 0; overflow: hidden; }
+      .zoom { position: absolute; inset: 0; }
+      .top { position: absolute; inset: 0; }
+      .shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(40,34,24,0.78) 0%, rgba(40,34,24,0.05) 20%, rgba(40,34,24,0.0) 50%, rgba(40,34,24,0.88) 100%); }
+
+      /* Gold wipe edge */
+      .edge { position: absolute; top: 0; bottom: 0; left: -6px; width: 12px; background: linear-gradient(180deg, #d8b55b, #b18b2e); box-shadow: 0 0 0 2px rgba(61,53,39,0.25); }
+
+      /* BEFORE / AFTER chips */
+      .chip { position: absolute; top: 300px; padding: 18px 34px; font-weight: 600; font-size: 38px; letter-spacing: 0.3em; border-radius: 999px; }
+      .chip-before { left: 72px; background: rgba(61,53,39,0.82); color: var(--sand); border: 2px solid rgba(245,237,220,0.45); }
+      .chip-after { right: 72px; background: var(--gold-grad); color: var(--charcoal); }
+
+      /* Logo bug */
+      .bug { position: absolute; top: 110px; left: 72px; width: 330px; }
+      .bug img { display: block; width: 100%; height: auto; }
+
+      /* Captions */
+      .cap { position: absolute; left: 72px; right: 72px; bottom: 260px; }
+      .eyebrow { font-weight: 600; font-size: 32px; letter-spacing: 0.32em; color: var(--light-gold); margin-bottom: 18px; }
+      .headline { font-family: "Playfair Display"; font-weight: 800; font-size: 104px; line-height: 1.02; letter-spacing: -0.01em; text-shadow: 0 2px 24px rgba(30,25,18,0.45); }
+      .headline em { font-style: normal; color: var(--light-gold); }
+      .rule { display: block; width: 140px; height: 6px; background: var(--gold-grad); margin: 34px 0 28px; transform-origin: left center; }
+      .sub { font-weight: 400; font-size: 44px; line-height: 1.3; color: var(--sand); }
+      .feat { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 36px; }
+      .pill { font-weight: 500; font-size: 36px; padding: 14px 30px; border-radius: 999px; background: rgba(61,53,39,0.78); border: 2px solid rgba(216,181,91,0.6); color: var(--ivory); }
+
+      /* CTA */
+      .cta { background: var(--charcoal); }
+      .cta-frame { position: absolute; inset: 56px; border: 2px solid rgba(216,181,91,0.45); }
+      .cta-inner { position: absolute; left: 72px; right: 72px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+      .cta-logo { width: 780px; }
+      .cta-logo img { display: block; width: 100%; height: auto; }
+      .cta-rule { width: 140px; height: 6px; background: var(--gold-grad); margin: 90px 0 60px; }
+      .cta-ask { font-family: "Playfair Display"; font-weight: 700; font-size: 74px; line-height: 1.15; color: var(--ivory); }
+      .cta-ask em { font-style: normal; color: var(--light-gold); }
+      .cta-phone { margin-top: 64px; background: var(--gold-grad); color: var(--charcoal); font-weight: 600; font-size: 88px; letter-spacing: 0.02em; padding: 26px 64px; border-radius: 999px; }
+      .cta-fine { margin-top: 60px; font-weight: 500; font-size: 32px; letter-spacing: 0.28em; color: var(--taupe); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+
+      <!-- MEDIA (track 0) -->
+      <!-- Pair 1: trench (before) -> paver patio + cover (after), cypress side -->
+      <div id="m1" class="clip stage" data-start="0" data-duration="6" data-track-index="0" data-layout-allow-overflow>
+        <div class="zoom" id="z1">
+          <img class="bg" src="assets/photos/after-1.jpg" alt="Finished Alumawood patio cover over new pavers" />
+          <div class="top" id="t1"><img class="bg" src="assets/photos/before-1.jpg" alt="Backyard dug out with trenches before the build" /></div>
+        </div>
+        <div class="edge" id="e1"></div>
+      </div>
+
+      <!-- Pair 2: sun-side dirt (before) -> finished cover with palm (after) -->
+      <div id="m2" class="clip stage" data-start="6" data-duration="4.4" data-track-index="0" data-layout-allow-overflow>
+        <div class="zoom" id="z2">
+          <img class="bg" src="assets/photos/after-2.jpg" alt="Finished patio cover with outdoor kitchen island" />
+          <div class="top" id="t2"><img class="bg" src="assets/photos/before-2.jpg" alt="Bare dirt yard before the build" /></div>
+        </div>
+        <div class="edge" id="e2"></div>
+      </div>
+
+      <!-- Hero shots -->
+      <div id="m3" class="clip stage" data-start="10.4" data-duration="3.2" data-track-index="0" data-layout-allow-overflow>
+        <img id="h1" class="bg" src="assets/photos/hero-front.jpg" alt="Under the new cover: recessed lights and ceiling fan" />
+      </div>
+      <div id="m4" class="clip stage" data-start="13.6" data-duration="2.8" data-track-index="0" data-layout-allow-overflow>
+        <img id="h2" class="bg" src="assets/photos/hero-angle.jpg" alt="Finished patio cover from the corner" />
+      </div>
+
+      <!-- SHADE (track 1) -->
+      <div id="shade" class="clip shade" data-start="0" data-duration="16.4" data-track-index="1"></div>
+
+      <!-- LOGO BUG (track 2) -->
+      <div id="bug-wrap" class="clip" data-start="0" data-duration="16.4" data-track-index="2">
+        <div class="bug" id="bug"><img src="assets/brand/logo-compact-h-reversed.png" alt="Golden Patio" /></div>
+      </div>
+
+      <!-- CHIPS (track 3) -->
+      <div id="chips1" class="clip" data-start="0" data-duration="6" data-track-index="3">
+        <div class="chip chip-before" id="cb1">BEFORE</div>
+        <div class="chip chip-after" id="ca1">AFTER</div>
+      </div>
+      <div id="chips2" class="clip" data-start="6" data-duration="4.4" data-track-index="3">
+        <div class="chip chip-before" id="cb2">BEFORE</div>
+        <div class="chip chip-after" id="ca2">AFTER</div>
+      </div>
+
+      <!-- TEXT (track 4) -->
+      <section id="s1" class="clip" data-start="0" data-duration="6" data-track-index="4">
+        <div class="cap" id="s1a">
+          <div class="eyebrow">DAY 1</div>
+          <h1 class="headline">Just dirt and <em>trenches.</em></h1>
+        </div>
+        <div class="cap" id="s1b">
+          <div class="eyebrow">THE REVEAL</div>
+          <h2 class="headline">A backyard <em>worth living in.</em></h2>
+        </div>
+      </section>
+
+      <section id="s2" class="clip" data-start="6" data-duration="4.4" data-track-index="4">
+        <div class="cap" id="s2a">
+          <h2 class="headline">From <em>bare ground…</em></h2>
+        </div>
+        <div class="cap" id="s2b">
+          <h2 class="headline">…to <em>shade &amp; style.</em></h2>
+        </div>
+      </section>
+
+      <section id="s3" class="clip" data-start="10.4" data-duration="3.2" data-track-index="4">
+        <div class="cap">
+          <div class="eyebrow" id="s3-e">THE DETAILS</div>
+          <h2 class="headline" id="s3-h">Built to <em>enjoy.</em></h2>
+          <div class="feat">
+            <span class="pill" id="f1">Alumawood cover</span>
+            <span class="pill" id="f2">Recessed lights</span>
+            <span class="pill" id="f3">Ceiling fan</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="s4" class="clip" data-start="13.6" data-duration="2.8" data-track-index="4">
+        <div class="cap">
+          <h2 class="headline" id="s4-h">No painting. <em>No rot.</em></h2>
+          <span class="rule" id="s4-r"></span>
+          <p class="sub" id="s4-s">Just your new favorite room — outside.</p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="s5" class="clip cta" data-start="16.4" data-duration="3.6" data-track-index="4">
+        <div class="cta-frame" id="s5-frame"></div>
+        <div class="cta-inner">
+          <div class="cta-logo" id="s5-logo"><img src="assets/brand/logo-primary-reversed.png" alt="Golden Patio Restoration" /></div>
+          <div class="cta-rule" id="s5-rule"></div>
+          <div class="cta-ask" id="s5-ask">Your patio <em>could be next.</em></div>
+          <div class="cta-phone" id="s5-phone">805-889-0869</div>
+          <div class="cta-fine" id="s5-fine">FREE ESTIMATES · LIC. 971127</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const out = "power3.out";
+      const W = 1080;
+
+      // Logos reveal with a wipe, never a fade (guide: no reduced opacity on the mark)
+      const wipe = (sel, t, d = 0.7) =>
+        tl.fromTo(sel, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: d, ease: "power2.inOut" }, t);
+
+      const rise = (sel, t, d = 0.6, y = 60) =>
+        tl.fromTo(sel, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: out }, t);
+      const leave = (sel, t) =>
+        tl.to(sel, { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" }, t);
+
+      // Before -> after wipe: the before layer is clipped away left-to-right while a gold edge rides the seam
+      function reveal(top, edge, t, d = 1.1) {
+        tl.fromTo(top, { clipPath: "inset(0% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 100%)", duration: d, ease: "power2.inOut" }, t);
+        tl.fromTo(edge, { x: 0, opacity: 1 }, { x: W + 12, duration: d, ease: "power2.inOut" }, t);
+      }
+
+      // ---- Pair 1 (0 - 6s)
+      tl.fromTo("#z1", { scale: 1.0 }, { scale: 1.1, duration: 6, ease: "none" }, 0);
+      tl.set("#e1", { opacity: 0 }, 0);
+      wipe("#bug", 0.2);
+      tl.fromTo("#cb1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 0.3);
+      rise("#s1a", 0.45, 0.7);
+      leave("#s1a", 2.5);
+      tl.to("#cb1", { opacity: 0, duration: 0.3 }, 2.6);
+      reveal("#t1", "#e1", 2.7);
+      tl.fromTo("#ca1", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 3.6);
+      rise("#s1b", 3.7, 0.7);
+      leave(["#s1b", "#ca1"], 5.7);
+
+      // ---- Pair 2 (6 - 10.4s)
+      tl.fromTo("#z2", { scale: 1.1 }, { scale: 1.0, duration: 4.4, ease: "none" }, 6);
+      tl.set("#e2", { opacity: 0 }, 6);
+      tl.fromTo("#cb2", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: out }, 6.1);
+      rise("#s2a", 6.15, 0.6);
+      leave("#s2a", 7.4);
+      tl.to("#cb2", { opacity: 0, duration: 0.3 }, 7.45);
+      reveal("#t2", "#e2", 7.55);
+      tl.fromTo("#ca2", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.4, ease: out }, 8.45);
+      rise("#s2b", 8.5, 0.6);
+      leave(["#s2b", "#ca2"], 10.1);
+
+      // ---- Hero front (10.4 - 13.6s): slow push in under the cover
+      tl.fromTo("#h1", { scale: 1.0 }, { scale: 1.12, duration: 3.2, ease: "none" }, 10.4);
+      rise("#s3-e", 10.55, 0.45, 24);
+      rise("#s3-h", 10.7, 0.6);
+      ["#f1", "#f2", "#f3"].forEach((f, i) => {
+        tl.fromTo(f, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 11.15 + i * 0.25);
+      });
+      leave(["#s3-e", "#s3-h", "#f1", "#f2", "#f3"], 13.3);
+
+      // ---- Hero angle (13.6 - 16.4s): lateral drift
+      tl.fromTo("#h2", { scale: 1.12, xPercent: 3 }, { scale: 1.04, xPercent: -2, duration: 2.8, ease: "none" }, 13.6);
+      rise("#s4-h", 13.75, 0.6);
+      tl.fromTo("#s4-r", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 14.15);
+      rise("#s4-s", 14.3, 0.5, 30);
+      leave(["#s4-h", "#s4-r", "#s4-s"], 16.1);
+
+      // ---- CTA (16.4 - 20s)
+      tl.fromTo("#s5-frame", { scale: 1.04, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: out }, 16.4);
+      wipe("#s5-logo", 16.5, 0.8);
+      tl.fromTo("#s5-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 17.0);
+      rise("#s5-ask", 17.15, 0.5, 30);
+      tl.fromTo("#s5-phone", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 17.45);
+      tl.fromTo("#s5-fine", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 17.85);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
