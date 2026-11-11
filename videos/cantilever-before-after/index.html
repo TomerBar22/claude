@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, height=1920" />
-    <title>Golden Patio Restoration — Before &amp; After</title>
+    <title>Golden Patio Restoration — Cantilever Before &amp; After</title>
     <script src="assets/gsap.min.js"></script>
     <style>
       /* Brand type: Playfair Display (guide headings) + Jost (stand-in for licensed Proxima Nova) */
@@ -72,34 +72,36 @@
     <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
 
       <!-- MEDIA (track 0) -->
-      <!-- Pair 1: trench (before) -> paver patio + cover (after), cypress side -->
+      <!-- Pair 1: corner with grill (before) -> cantilever in the corner (after) -->
       <div id="m1" class="clip stage" data-start="0" data-duration="6" data-track-index="0" data-layout-allow-overflow>
         <div class="zoom" id="z1">
-          <img class="bg" src="assets/photos/after-1.jpg" alt="Finished Alumawood patio cover over new pavers" />
-          <div class="top" id="t1"><img class="bg" src="assets/photos/before-1.jpg" alt="Backyard dug out with trenches before the build" /></div>
+          <img class="bg" src="assets/photos/after-1.jpg" alt="Freestanding two-tone cantilever cover in the patio corner" />
+          <div class="top" id="t1"><img class="bg" src="assets/photos/before-1.jpg" alt="Patio corner with covered grill before the build" /></div>
         </div>
         <div class="edge" id="e1"></div>
       </div>
 
-      <!-- Pair 2: sun-side dirt (before) -> finished cover with palm (after) -->
+      <!-- Pair 2: bare wall (before) -> cantilever straight on (after) -->
       <div id="m2" class="clip stage" data-start="6" data-duration="4.4" data-track-index="0" data-layout-allow-overflow>
         <div class="zoom" id="z2">
-          <img class="bg" src="assets/photos/after-2.jpg" alt="Finished patio cover with outdoor kitchen island" />
-          <div class="top" id="t2"><img class="bg" src="assets/photos/before-2.jpg" alt="Bare dirt yard before the build" /></div>
+          <img class="bg" src="assets/photos/after-2.jpg" alt="Cantilever cover straight on, white ceiling and black beams" />
+          <div class="top" id="t2"><img class="bg" src="assets/photos/before-2.jpg" alt="Bare block wall before the build" /></div>
         </div>
         <div class="edge" id="e2"></div>
       </div>
 
       <!-- Hero shots -->
       <div id="m3" class="clip stage" data-start="10.4" data-duration="3.2" data-track-index="0" data-layout-allow-overflow>
-        <img id="h1" class="bg" src="assets/photos/hero-front.jpg" alt="Under the new cover: recessed lights and ceiling fan" />
+        <img id="h1" class="bg" src="assets/photos/hero.jpg" alt="Cantilever beams and recessed lights up close" />
       </div>
       <div id="m4" class="clip stage" data-start="13.6" data-duration="2.8" data-track-index="0" data-layout-allow-overflow>
-        <img id="h2" class="bg" src="assets/photos/hero-angle.jpg" alt="Finished patio cover from the corner" />
+        <img id="h2" class="bg" src="assets/photos/after-1.jpg" alt="Finished cantilever with string lights" />
       </div>
 
       <!-- SHADE (track 1) -->
       <div id="shade" class="clip shade" data-start="0" data-duration="16.4" data-track-index="1"></div>
+
+      <div id="hero-dim" class="clip" data-start="10.4" data-duration="6" data-track-index="1" style="background: linear-gradient(180deg, rgba(30,25,18,0) 45%, rgba(30,25,18,0.78) 72%, rgba(30,25,18,0.9) 100%)"></div>
 
       <!-- LOGO BUG (track 2) -->
       <div id="bug-wrap" class="clip" data-start="0" data-duration="16.4" data-track-index="2">
@@ -119,41 +121,41 @@
       <!-- TEXT (track 4) -->
       <section id="s1" class="clip" data-start="0" data-duration="6" data-track-index="4">
         <div class="cap" id="s1a">
-          <div class="eyebrow">DAY 1</div>
-          <h1 class="headline">Just dirt and <em>trenches.</em></h1>
+          <div class="eyebrow">THE CORNER</div>
+          <h1 class="headline">Sun-baked and <em>forgotten.</em></h1>
         </div>
         <div class="cap" id="s1b">
           <div class="eyebrow">THE REVEAL</div>
-          <h2 class="headline">A backyard <em>worth living in.</em></h2>
+          <h2 class="headline">Now the <em>best seat in the yard.</em></h2>
         </div>
       </section>
 
       <section id="s2" class="clip" data-start="6" data-duration="4.4" data-track-index="4">
         <div class="cap" id="s2a">
-          <h2 class="headline">From <em>bare ground…</em></h2>
+          <h2 class="headline">Just a <em>blank wall…</em></h2>
         </div>
         <div class="cap" id="s2b">
-          <h2 class="headline">…to <em>shade &amp; style.</em></h2>
+          <h2 class="headline">…now a <em>statement.</em></h2>
         </div>
       </section>
 
       <section id="s3" class="clip" data-start="10.4" data-duration="3.2" data-track-index="4">
         <div class="cap">
-          <div class="eyebrow" id="s3-e">THE DETAILS</div>
-          <h2 class="headline" id="s3-h">Built to <em>enjoy.</em></h2>
+          <div class="eyebrow" id="s3-e">FREESTANDING CANTILEVER</div>
+          <h2 class="headline" id="s3-h">Two-tone<br /><em>white × black.</em></h2>
           <div class="feat">
-            <span class="pill" id="f1">Alumawood cover</span>
-            <span class="pill" id="f2">Recessed lights</span>
-            <span class="pill" id="f3">Ceiling fan</span>
+            <span class="pill" id="f1">Freestanding</span>
+            <span class="pill" id="f2">Cantilever beams</span>
+            <span class="pill" id="f3">Recessed lights</span>
           </div>
         </div>
       </section>
 
       <section id="s4" class="clip" data-start="13.6" data-duration="2.8" data-track-index="4">
         <div class="cap">
-          <h2 class="headline" id="s4-h">No painting. <em>No rot.</em></h2>
+          <h2 class="headline" id="s4-h">Modern lines. <em>Real shade.</em></h2>
           <span class="rule" id="s4-r"></span>
-          <p class="sub" id="s4-s">Just your new favorite room — outside.</p>
+          <p class="sub" id="s4-s">No house attachment needed.</p>
         </div>
       </section>
 
