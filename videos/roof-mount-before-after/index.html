@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, height=1920" />
-    <title>Golden Patio Restoration — Cantilever Before &amp; After</title>
+    <title>Golden Patio Restoration — Roof Mount Before &amp; After</title>
     <script src="assets/gsap.min.js"></script>
     <style>
       /* Brand type: Playfair Display (guide headings) + Jost (stand-in for licensed Proxima Nova) */
@@ -69,42 +69,50 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="25" data-width="1080" data-height="1920">
 
       <!-- MEDIA (track 0) -->
-      <!-- Pair 1: corner with grill (before) -> cantilever in the corner (after) -->
+      <!-- Pair 1: chimney side, gravel yard (before) -> cover beside the chimney (after) -->
       <div id="m1" class="clip stage" data-start="0" data-duration="6" data-track-index="0" data-layout-allow-overflow>
         <div class="zoom" id="z1">
-          <img class="bg" src="assets/photos/after-1.jpg" alt="Freestanding two-tone cantilever cover in the patio corner" />
-          <div class="top" id="t1"><img class="bg" src="assets/photos/before-1.jpg" alt="Patio corner with covered grill before the build" /></div>
+          <img class="bg" src="assets/photos/after-1.jpg" alt="Roof mount cover beside the chimney with outdoor furniture" />
+          <div class="top" id="t1"><img class="bg" src="assets/photos/before-1.jpg" alt="Gravel yard by the chimney before the build" /></div>
         </div>
         <div class="edge" id="e1"></div>
       </div>
 
-      <!-- Pair 2: bare wall (before) -> cantilever straight on (after) -->
-      <div id="m2" class="clip stage" data-start="6" data-duration="4.4" data-track-index="0" data-layout-allow-overflow>
+      <!-- Pair 2: straight on from the pool (before) -> straight on, finished (after) -->
+      <div id="m2" class="clip stage" data-start="6" data-duration="4.8" data-track-index="0" data-layout-allow-overflow>
         <div class="zoom" id="z2">
-          <img class="bg" src="assets/photos/after-2.jpg" alt="Cantilever cover straight on, white ceiling and black beams" />
-          <div class="top" id="t2"><img class="bg" src="assets/photos/before-2.jpg" alt="Bare block wall before the build" /></div>
+          <img class="bg" src="assets/photos/after-2.jpg" alt="Finished roof mount cover across the pool" />
+          <div class="top" id="t2"><img class="bg" src="assets/photos/before-2.jpg" alt="Back of the house from the unfinished pool" /></div>
         </div>
         <div class="edge" id="e2"></div>
       </div>
 
-      <!-- Hero shots -->
-      <div id="m3" class="clip stage" data-start="10.4" data-duration="3.2" data-track-index="0" data-layout-allow-overflow>
-        <img id="h1" class="bg" src="assets/photos/hero.jpg" alt="Cantilever beams and recessed lights up close" />
+      <!-- Pair 3: long angle down the house (before) -> long covered patio (after) -->
+      <div id="m3" class="clip stage" data-start="10.8" data-duration="4.8" data-track-index="0" data-layout-allow-overflow>
+        <div class="zoom" id="z3">
+          <img class="bg" src="assets/photos/after-3.jpg" alt="Long roof mount cover along the house and pool" />
+          <div class="top" id="t3"><img class="bg" src="assets/photos/before-3.jpg" alt="Long bare wall of the house before the build" /></div>
+        </div>
+        <div class="edge" id="e3"></div>
       </div>
-      <div id="m4" class="clip stage" data-start="13.6" data-duration="2.8" data-track-index="0" data-layout-allow-overflow>
-        <img id="h2" class="bg" src="assets/photos/after-1.jpg" alt="Finished cantilever with string lights" />
+
+      <!-- Hero shots -->
+      <div id="m4" class="clip stage" data-start="15.6" data-duration="3" data-track-index="0" data-layout-allow-overflow>
+        <img id="h1" class="bg" src="assets/photos/hero-under.jpg" alt="Under the white roof: ceiling fans and recessed lights" />
+      </div>
+      <div id="m5" class="clip stage" data-start="18.6" data-duration="2.8" data-track-index="0" data-layout-allow-overflow>
+        <img id="h2" class="bg" src="assets/photos/hero-detail.jpg" alt="Black beam and post detail against the white roof" />
       </div>
 
       <!-- SHADE (track 1) -->
-      <div id="shade" class="clip shade" data-start="0" data-duration="16.4" data-track-index="1"></div>
-
-      <div id="hero-dim" class="clip" data-start="10.4" data-duration="6" data-track-index="1" style="background: linear-gradient(180deg, rgba(30,25,18,0) 45%, rgba(30,25,18,0.78) 72%, rgba(30,25,18,0.9) 100%)"></div>
+      <div id="shade" class="clip shade" data-start="0" data-duration="21.4" data-track-index="1"></div>
+      <div id="hero-dim" class="clip" data-start="15.6" data-duration="5.8" data-track-index="1" style="background: linear-gradient(180deg, rgba(30,25,18,0) 45%, rgba(30,25,18,0.78) 72%, rgba(30,25,18,0.9) 100%)"></div>
 
       <!-- LOGO BUG (track 2) -->
-      <div id="bug-wrap" class="clip" data-start="0" data-duration="16.4" data-track-index="2">
+      <div id="bug-wrap" class="clip" data-start="0" data-duration="21.4" data-track-index="2">
         <div class="bug" id="bug"><img src="assets/brand/logo-compact-h-reversed.png" alt="Golden Patio" /></div>
       </div>
 
@@ -113,61 +121,74 @@
         <div class="chip chip-before" id="cb1">BEFORE</div>
         <div class="chip chip-after" id="ca1">AFTER</div>
       </div>
-      <div id="chips2" class="clip" data-start="6" data-duration="4.4" data-track-index="3">
+      <div id="chips2" class="clip" data-start="6" data-duration="4.8" data-track-index="3">
         <div class="chip chip-before" id="cb2">BEFORE</div>
         <div class="chip chip-after" id="ca2">AFTER</div>
+      </div>
+      <div id="chips3" class="clip" data-start="10.8" data-duration="4.8" data-track-index="3">
+        <div class="chip chip-before" id="cb3">BEFORE</div>
+        <div class="chip chip-after" id="ca3">AFTER</div>
       </div>
 
       <!-- TEXT (track 4) -->
       <section id="s1" class="clip" data-start="0" data-duration="6" data-track-index="4">
         <div class="cap" id="s1a">
-          <div class="eyebrow">THE CORNER</div>
-          <h1 class="headline">Sun-baked and <em>forgotten.</em></h1>
+          <div class="eyebrow">DAY 1</div>
+          <h1 class="headline">Gravel, stakes and <em>zero shade.</em></h1>
         </div>
         <div class="cap" id="s1b">
           <div class="eyebrow">THE REVEAL</div>
-          <h2 class="headline">Now the <em>best seat in the yard.</em></h2>
+          <h2 class="headline">Now: <em>shade by the pool.</em></h2>
         </div>
       </section>
 
-      <section id="s2" class="clip" data-start="6" data-duration="4.4" data-track-index="4">
+      <section id="s2" class="clip" data-start="6" data-duration="4.8" data-track-index="4">
         <div class="cap" id="s2a">
-          <h2 class="headline">Just a <em>blank wall…</em></h2>
+          <h2 class="headline">From <em>bare ground…</em></h2>
         </div>
         <div class="cap" id="s2b">
-          <h2 class="headline">…now a <em>statement.</em></h2>
+          <h2 class="headline">…to <em>poolside living.</em></h2>
         </div>
       </section>
 
-      <section id="s3" class="clip" data-start="10.4" data-duration="3.2" data-track-index="4">
+      <section id="s3" class="clip" data-start="10.8" data-duration="4.8" data-track-index="4">
+        <div class="cap" id="s3a">
+          <h2 class="headline">One long, <em>empty wall…</em></h2>
+        </div>
+        <div class="cap" id="s3b">
+          <h2 class="headline">…one long, <em>covered patio.</em></h2>
+        </div>
+      </section>
+
+      <section id="s4" class="clip" data-start="15.6" data-duration="3" data-track-index="4">
         <div class="cap">
-          <div class="eyebrow" id="s3-e">FREESTANDING CANTILEVER</div>
-          <h2 class="headline" id="s3-h">Two-tone<br /><em>white × black.</em></h2>
+          <div class="eyebrow" id="s4-e">ROOF MOUNT COVER</div>
+          <h2 class="headline" id="s4-h">White roof.<br /><em>Black trim.</em></h2>
           <div class="feat">
-            <span class="pill" id="f1">Freestanding</span>
-            <span class="pill" id="f2">Cantilever beams</span>
+            <span class="pill" id="f1">Roof mount</span>
+            <span class="pill" id="f2">Ceiling fans</span>
             <span class="pill" id="f3">Recessed lights</span>
           </div>
         </div>
       </section>
 
-      <section id="s4" class="clip" data-start="13.6" data-duration="2.8" data-track-index="4">
+      <section id="s5" class="clip" data-start="18.6" data-duration="2.8" data-track-index="4">
         <div class="cap">
-          <h2 class="headline" id="s4-h">Modern lines. <em>Real shade.</em></h2>
-          <span class="rule" id="s4-r"></span>
-          <p class="sub" id="s4-s">No house attachment needed.</p>
+          <h2 class="headline" id="s5-h">Every line, <em>done right.</em></h2>
+          <span class="rule" id="s5-r"></span>
+          <p class="sub" id="s5-s">Ready for every pool day.</p>
         </div>
       </section>
 
       <!-- CTA -->
-      <section id="s5" class="clip cta" data-start="16.4" data-duration="3.6" data-track-index="4">
-        <div class="cta-frame" id="s5-frame"></div>
+      <section id="s6" class="clip cta" data-start="21.4" data-duration="3.6" data-track-index="4">
+        <div class="cta-frame" id="s6-frame"></div>
         <div class="cta-inner">
-          <div class="cta-logo" id="s5-logo"><img src="assets/brand/logo-primary-reversed.png" alt="Golden Patio Restoration" /></div>
-          <div class="cta-rule" id="s5-rule"></div>
-          <div class="cta-ask" id="s5-ask">Your patio <em>could be next.</em></div>
-          <div class="cta-phone" id="s5-phone">805-889-0869</div>
-          <div class="cta-fine" id="s5-fine">FREE ESTIMATES · LIC. 971127</div>
+          <div class="cta-logo" id="s6-logo"><img src="assets/brand/logo-primary-reversed.png" alt="Golden Patio Restoration" /></div>
+          <div class="cta-rule" id="s6-rule"></div>
+          <div class="cta-ask" id="s6-ask">Your patio <em>could be next.</em></div>
+          <div class="cta-phone" id="s6-phone">805-889-0869</div>
+          <div class="cta-fine" id="s6-fine">FREE ESTIMATES · LIC. 971127</div>
         </div>
       </section>
     </div>
@@ -181,7 +202,6 @@
       // Logos reveal with a wipe, never a fade (guide: no reduced opacity on the mark)
       const wipe = (sel, t, d = 0.7) =>
         tl.fromTo(sel, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: d, ease: "power2.inOut" }, t);
-
       const rise = (sel, t, d = 0.6, y = 60) =>
         tl.fromTo(sel, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: out }, t);
       const leave = (sel, t) =>
@@ -193,54 +213,48 @@
         tl.fromTo(edge, { x: 0, opacity: 1 }, { x: W + 12, duration: d, ease: "power2.inOut" }, t);
       }
 
-      // ---- Pair 1 (0 - 6s)
-      tl.fromTo("#z1", { scale: 1.0 }, { scale: 1.1, duration: 6, ease: "none" }, 0);
-      tl.set("#e1", { opacity: 0 }, 0);
+      // One before/after pair: n = index, t0 = scene start, dur = scene length, zoomIn = push direction
+      function pair(n, t0, dur, zoomIn, wipeAt) {
+        tl.fromTo(`#z${n}`, { scale: zoomIn ? 1.0 : 1.1 }, { scale: zoomIn ? 1.1 : 1.0, duration: dur, ease: "none" }, t0);
+        tl.set(`#e${n}`, { opacity: 0 }, t0);
+        tl.fromTo(`#cb${n}`, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, t0 + 0.3);
+        rise(`#s${n}a`, t0 + 0.45, 0.7);
+        leave(`#s${n}a`, wipeAt - 0.2);
+        tl.to(`#cb${n}`, { opacity: 0, duration: 0.3 }, wipeAt - 0.1);
+        reveal(`#t${n}`, `#e${n}`, wipeAt);
+        tl.fromTo(`#ca${n}`, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, wipeAt + 0.9);
+        rise(`#s${n}b`, wipeAt + 1.0, 0.7);
+        leave([`#s${n}b`, `#ca${n}`], t0 + dur - 0.3);
+      }
+
       wipe("#bug", 0.2);
-      tl.fromTo("#cb1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 0.3);
-      rise("#s1a", 0.45, 0.7);
-      leave("#s1a", 2.5);
-      tl.to("#cb1", { opacity: 0, duration: 0.3 }, 2.6);
-      reveal("#t1", "#e1", 2.7);
-      tl.fromTo("#ca1", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 3.6);
-      rise("#s1b", 3.7, 0.7);
-      leave(["#s1b", "#ca1"], 5.7);
+      pair(1, 0, 6, true, 2.7);
+      pair(2, 6, 4.8, false, 7.9);
+      pair(3, 10.8, 4.8, true, 12.7);
 
-      // ---- Pair 2 (6 - 10.4s)
-      tl.fromTo("#z2", { scale: 1.1 }, { scale: 1.0, duration: 4.4, ease: "none" }, 6);
-      tl.set("#e2", { opacity: 0 }, 6);
-      tl.fromTo("#cb2", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: out }, 6.1);
-      rise("#s2a", 6.15, 0.6);
-      leave("#s2a", 7.4);
-      tl.to("#cb2", { opacity: 0, duration: 0.3 }, 7.45);
-      reveal("#t2", "#e2", 7.55);
-      tl.fromTo("#ca2", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.4, ease: out }, 8.45);
-      rise("#s2b", 8.5, 0.6);
-      leave(["#s2b", "#ca2"], 10.1);
-
-      // ---- Hero front (10.4 - 13.6s): slow push in under the cover
-      tl.fromTo("#h1", { scale: 1.0 }, { scale: 1.12, duration: 3.2, ease: "none" }, 10.4);
-      rise("#s3-e", 10.55, 0.45, 24);
-      rise("#s3-h", 10.7, 0.6);
+      // ---- Hero under the cover (15.6 - 18.6s)
+      tl.fromTo("#h1", { scale: 1.0 }, { scale: 1.12, duration: 3, ease: "none" }, 15.6);
+      rise("#s4-e", 15.75, 0.45, 24);
+      rise("#s4-h", 15.9, 0.6);
       ["#f1", "#f2", "#f3"].forEach((f, i) => {
-        tl.fromTo(f, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 11.15 + i * 0.25);
+        tl.fromTo(f, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 16.3 + i * 0.25);
       });
-      leave(["#s3-e", "#s3-h", "#f1", "#f2", "#f3"], 13.3);
+      leave(["#s4-e", "#s4-h", "#f1", "#f2", "#f3"], 18.3);
 
-      // ---- Hero angle (13.6 - 16.4s): lateral drift
-      tl.fromTo("#h2", { scale: 1.12, xPercent: 3 }, { scale: 1.04, xPercent: -2, duration: 2.8, ease: "none" }, 13.6);
-      rise("#s4-h", 13.75, 0.6);
-      tl.fromTo("#s4-r", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 14.15);
-      rise("#s4-s", 14.3, 0.5, 30);
-      leave(["#s4-h", "#s4-r", "#s4-s"], 16.1);
+      // ---- Hero detail (18.6 - 21.4s): lateral drift
+      tl.fromTo("#h2", { scale: 1.12, xPercent: 3 }, { scale: 1.04, xPercent: -2, duration: 2.8, ease: "none" }, 18.6);
+      rise("#s5-h", 18.75, 0.6);
+      tl.fromTo("#s5-r", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 19.15);
+      rise("#s5-s", 19.3, 0.5, 30);
+      leave(["#s5-h", "#s5-r", "#s5-s"], 21.1);
 
-      // ---- CTA (16.4 - 20s)
-      tl.fromTo("#s5-frame", { scale: 1.04, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: out }, 16.4);
-      wipe("#s5-logo", 16.5, 0.8);
-      tl.fromTo("#s5-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 17.0);
-      rise("#s5-ask", 17.15, 0.5, 30);
-      tl.fromTo("#s5-phone", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 17.45);
-      tl.fromTo("#s5-fine", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 17.85);
+      // ---- CTA (21.4 - 25s)
+      tl.fromTo("#s6-frame", { scale: 1.04, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: out }, 21.4);
+      wipe("#s6-logo", 21.5, 0.8);
+      tl.fromTo("#s6-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 22.0);
+      rise("#s6-ask", 22.15, 0.5, 30);
+      tl.fromTo("#s6-phone", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 22.45);
+      tl.fromTo("#s6-fine", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 22.85);
 
       window.__timelines["main"] = tl;
     </script>
