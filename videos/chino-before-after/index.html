@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, height=1920" />
-    <title>Golden Patio Restoration — Balcony Patio Roof Before &amp; After</title>
+    <title>Golden Patio Restoration — Chino Patio Cover Before &amp; After</title>
     <script src="assets/gsap.min.js"></script>
     <style>
       /* Brand type: Playfair Display (guide headings) + Jost (stand-in for licensed Proxima Nova) */
@@ -58,10 +58,6 @@
       .tag-before { background: rgba(40,34,24,0.78); color: var(--ivory); border: 2px solid rgba(250,247,245,0.5); }
       .tag-after { background: var(--gold-grad); color: var(--charcoal); }
 
-      /* Framed landscape photo for the hero */
-      .frame-photo { position: absolute; left: 0; right: 0; top: 340px; height: 608px; overflow: hidden; border-top: 6px solid #d8b55b; border-bottom: 6px solid #b18b2e; }
-      .frame-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
-
       /* Feature list on hero */
       .checks { margin-top: 10px; display: flex; flex-direction: column; gap: 30px; }
       .check { display: flex; align-items: center; gap: 28px; font-weight: 500; font-size: 48px; color: var(--ivory); }
@@ -82,36 +78,39 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="23.2" data-width="1080" data-height="1920">
 
       <!-- MEDIA (track 0) -->
       <div id="m-hook" class="clip kb" data-start="0" data-duration="3" data-track-index="0" data-layout-allow-overflow>
-        <img id="p-hook" class="bg" src="assets/before1.jpg" alt="Under the balcony: open joists and dirt" />
+        <img id="p-hook" class="bg" src="assets/before1.jpg" alt="Old wood lattice cover being torn down" />
       </div>
 
       <div id="m-a" class="clip cmp" data-start="3" data-duration="4.6" data-track-index="0" data-layout-allow-overflow>
-        <div class="layer"><img id="pa-b" class="bg" src="assets/before1.jpg" alt="Before: open balcony joists" /></div>
-        <div class="layer after-layer" id="pa-wrap"><img id="pa-a" class="bg" src="assets/after1.jpg" style="object-position: 63% 50%" alt="After: new patio roof with lights on" /></div>
+        <div class="layer"><img id="pa-b" class="bg" src="assets/before1.jpg" alt="Before: weathered wood lattice over the entry" /></div>
+        <div class="layer after-layer" id="pa-wrap"><img id="pa-a" class="bg" src="assets/after2.jpg" alt="After: new lattice cover over the front door" /></div>
         <div class="seam" id="pa-seam"></div>
       </div>
 
       <div id="m-b" class="clip cmp" data-start="7.6" data-duration="4.6" data-track-index="0" data-layout-allow-overflow>
-        <div class="layer"><img id="pb-b" class="bg" src="assets/before2.jpg" alt="Before: view along the house" /></div>
-        <div class="layer after-layer" id="pb-wrap"><img id="pb-a" class="bg" src="assets/after2.jpg" style="object-position: 55% 50%" alt="After: patio roof along the house" /></div>
+        <div class="layer"><img id="pb-b" class="bg" src="assets/before2.jpg" style="object-position: 35% 50%" alt="Before: front entry after demo" /></div>
+        <div class="layer after-layer" id="pb-wrap"><img id="pb-a" class="bg" src="assets/after1.jpg" style="object-position: 40% 50%" alt="After: lattice cover from the lawn" /></div>
         <div class="seam" id="pb-seam"></div>
       </div>
 
       <div id="m-hero" class="clip kb" data-start="12.2" data-duration="4.2" data-track-index="0" data-layout-allow-overflow>
-        <img class="bg" src="assets/after4-bg.jpg" alt="" />
-        <div class="frame-photo"><img id="p-hero" src="assets/after4.jpg" alt="Patio roof under the balcony overlooking the pool" /></div>
+        <img id="p-hero" class="bg" src="assets/after4.jpg" alt="Looking out from under the new lattice cover" />
+      </div>
+
+      <div id="m-m1" class="clip kb" data-start="16.4" data-duration="3.2" data-track-index="0" data-layout-allow-overflow>
+        <img id="p-m1" class="bg" src="assets/after3.jpg" alt="Lattice cover along the garage wall" />
       </div>
 
       <!-- SHADE over photos (track 1) -->
-      <div id="shade" class="clip shade" data-start="0" data-duration="16.4" data-track-index="1"></div>
+      <div id="shade" class="clip shade" data-start="0" data-duration="19.6" data-track-index="1"></div>
       <div id="hook-dim" class="clip" data-start="0" data-duration="3" data-track-index="1" style="background: rgba(61,53,39,0.6)"></div>
 
       <!-- LOGO BUG (track 2) -->
-      <div id="bug-wrap" class="clip" data-start="0" data-duration="16.4" data-track-index="2">
+      <div id="bug-wrap" class="clip" data-start="0" data-duration="19.6" data-track-index="2">
         <div class="bug" id="bug"><img src="assets/brand/logo-compact-h-reversed.png" alt="Golden Patio" /></div>
       </div>
 
@@ -128,56 +127,63 @@
       <!-- TEXT (track 3) -->
       <section id="s1" class="clip" data-start="0" data-duration="3" data-track-index="3">
         <div class="hook">
-          <div class="eyebrow" id="s1-e">BEFORE &amp; AFTER</div>
-          <h1 class="headline" id="s1-h">Shade under the <em>balcony.</em></h1>
+          <div class="eyebrow" id="s1-e">CHINO, CA · BEFORE &amp; AFTER</div>
+          <h1 class="headline" id="s1-h">Old wood out. <em>New cover in.</em></h1>
         </div>
       </section>
 
       <section id="s2" class="clip" data-start="3" data-duration="4.6" data-track-index="3">
         <div class="card" id="s2-cb">
           <div class="eyebrow" id="s2-be">BEFORE</div>
-          <h2 class="headline" id="s2-bh">Open joists, <em>no&nbsp;shade.</em></h2>
+          <h2 class="headline" id="s2-bh">Weathered <em>wood&nbsp;lattice.</em></h2>
           <span class="rule" id="s2-br"></span>
         </div>
         <div class="card" id="s2-ca">
           <div class="eyebrow" id="s2-ae">AFTER</div>
-          <h2 class="headline" id="s2-ah">A finished <em>patio&nbsp;roof.</em></h2>
+          <h2 class="headline" id="s2-ah">A brand-new <em>lattice&nbsp;cover.</em></h2>
           <span class="rule" id="s2-ar"></span>
         </div>
       </section>
 
       <section id="s3" class="clip" data-start="7.6" data-duration="4.6" data-track-index="3">
         <div class="card" id="s3-cb">
-          <div class="eyebrow" id="s3-be">THE SMART WAY</div>
-          <h2 class="headline" id="s3-bh">Keep the <em>existing&nbsp;posts.</em></h2>
+          <div class="eyebrow" id="s3-be">DEMO DONE</div>
+          <h2 class="headline" id="s3-bh">A bare <em>front&nbsp;entry.</em></h2>
           <span class="rule" id="s3-br"></span>
         </div>
         <div class="card" id="s3-ca">
-          <div class="eyebrow" id="s3-ae">BUILT RIGHT</div>
-          <h2 class="headline" id="s3-ah">New roof, <em>same&nbsp;posts.</em></h2>
+          <div class="eyebrow" id="s3-ae">FINISHED</div>
+          <h2 class="headline" id="s3-ah">Curb appeal, <em>restored.</em></h2>
           <span class="rule" id="s3-ar"></span>
         </div>
       </section>
 
       <section id="s4" class="clip" data-start="12.2" data-duration="4.2" data-track-index="3">
         <div class="card">
-          <h2 class="headline" id="s4-h">Lit up &amp; <em>ready.</em></h2>
+          <h2 class="headline" id="s4-h">Shade that <em>lasts.</em></h2>
           <span class="rule" id="s4-r"></span>
           <div class="checks">
-            <div class="check" id="c1"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>Installed under the balcony</div>
-            <div class="check" id="c2"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>Uses the existing posts</div>
-            <div class="check" id="c3"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>New lights added</div>
+            <div class="check" id="c1"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>Crisp white lattice cover</div>
+            <div class="check" id="c2"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>Filtered shade at the entry</div>
+            <div class="check" id="c3"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>Built in Chino, CA</div>
           </div>
         </div>
       </section>
 
+      <section id="s6" class="clip" data-start="16.4" data-duration="3.2" data-track-index="3">
+        <div class="card">
+          <h2 class="headline" id="s6-h">Welcome <em>home.</em></h2>
+          <span class="rule" id="s6-r"></span>
+        </div>
+      </section>
+
       <!-- CTA -->
-      <section id="s5" class="clip cta" data-start="16.4" data-duration="3.6" data-track-index="3">
+      <section id="s5" class="clip cta" data-start="19.6" data-duration="3.6" data-track-index="3">
         <div class="cta-frame" id="s5-frame"></div>
         <div class="cta-inner">
           <div class="cta-logo" id="s5-logo"><img src="assets/brand/logo-primary-reversed.png" alt="Golden Patio Restoration" /></div>
           <div class="cta-rule" id="s5-rule"></div>
-          <div class="cta-ask" id="s5-ask">Get your <em>free</em> patio roof estimate</div>
+          <div class="cta-ask" id="s5-ask">Get your <em>free</em> patio cover estimate</div>
           <div class="cta-phone" id="s5-phone">805-889-0869</div>
           <div class="cta-fine" id="s5-fine">LIC. 971127</div>
         </div>
@@ -225,21 +231,25 @@
       compare("pb", 7.6, 8.9); tags("tb", 7.6, 8.9); caption("s3", 7.6, 8.9, 4.6);
 
       // Hero: pan across the wide landscape shot
-      tl.fromTo("#p-hero", { scale: 1.0 }, { scale: 1.1, duration: 4.2, ease: "none" }, 12.2);
-      tl.fromTo(".frame-photo", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: out }, 12.2);
+      tl.fromTo("#p-hero", { scale: 1.0 }, { scale: 1.12, duration: 4.2, ease: "none" }, 12.2);
       tl.fromTo("#s4-h", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: out }, 12.4);
       tl.fromTo("#s4-r", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 12.7);
       ["#c1", "#c2", "#c3"].forEach((c, i) => {
         tl.fromTo(c, { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: out }, 12.95 + i * 0.35);
       });
 
+      // Montage
+      tl.fromTo("#p-m1", { scale: 1.12, xPercent: 2 }, { scale: 1.02, xPercent: -2, duration: 3.2, ease: "none" }, 16.4);
+      tl.fromTo("#s6-h", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: out }, 16.55);
+      tl.fromTo("#s6-r", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 16.85);
+
       // CTA
-      tl.fromTo("#s5-frame", { scale: 1.04, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: out }, 16.4);
-      wipe("#s5-logo", 16.5, 0.8);
-      tl.fromTo("#s5-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 17.0);
-      tl.fromTo("#s5-ask", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: out }, 17.15);
-      tl.fromTo("#s5-phone", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 17.45);
-      tl.fromTo("#s5-fine", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 17.85);
+      tl.fromTo("#s5-frame", { scale: 1.04, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: out }, 19.6);
+      wipe("#s5-logo", 19.7, 0.8);
+      tl.fromTo("#s5-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 20.2);
+      tl.fromTo("#s5-ask", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: out }, 20.35);
+      tl.fromTo("#s5-phone", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 20.65);
+      tl.fromTo("#s5-fine", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 21.05);
 
       window.__timelines["main"] = tl;
     </script>
