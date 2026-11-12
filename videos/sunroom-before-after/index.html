@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, height=1920" />
-    <title>Golden Patio Restoration — Patio Cover Before &amp; After</title>
+    <title>Golden Patio Restoration — Sunroom Before &amp; After</title>
     <script src="assets/gsap.min.js"></script>
     <style>
       /* Brand type: Playfair Display (guide headings) + Jost (stand-in for licensed Proxima Nova) */
@@ -78,35 +78,42 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="23.2" data-width="1080" data-height="1920">
 
       <!-- MEDIA (track 0) -->
       <div id="m-hook" class="clip kb" data-start="0" data-duration="3" data-track-index="0" data-layout-allow-overflow>
-        <img id="p-hook" class="bg" src="assets/before1.jpg" alt="Backyard after demolition, broken concrete" />
+        <img id="p-hook" class="bg" src="assets/before1.jpg" alt="Open patio slab with sunroom base channels" />
       </div>
 
       <div id="m-a" class="clip cmp" data-start="3" data-duration="4.6" data-track-index="0" data-layout-allow-overflow>
-        <div class="layer"><img id="pa-b" class="bg" src="assets/before1.jpg" alt="Before: demolished patio" /></div>
-        <div class="layer after-layer" id="pa-wrap"><img id="pa-a" class="bg" src="assets/after2.jpg" alt="After: new white patio cover" /></div>
+        <div class="layer"><img id="pa-b" class="bg" src="assets/before1.jpg" alt="Before: open patio slab" /></div>
+        <div class="layer after-layer" id="pa-wrap"><img id="pa-a" class="bg" src="assets/after3.jpg" alt="After: finished sunroom with sliding windows" /></div>
         <div class="seam" id="pa-seam"></div>
       </div>
 
       <div id="m-b" class="clip cmp" data-start="7.6" data-duration="4.6" data-track-index="0" data-layout-allow-overflow>
-        <div class="layer"><img id="pb-b" class="bg" src="assets/before2.jpg" alt="Before: rubble along the house" /></div>
-        <div class="layer after-layer" id="pb-wrap"><img id="pb-a" class="bg" src="assets/after1.jpg" alt="After: patio cover with lights and fan" /></div>
+        <div class="layer"><img id="pb-b" class="bg" src="assets/before2.jpg" style="object-position: 100% 50%" alt="Before: corner by the walkway" /></div>
+        <div class="layer after-layer" id="pb-wrap"><img id="pb-a" class="bg" src="assets/after1.jpg" alt="After: sunroom entry door" /></div>
         <div class="seam" id="pb-seam"></div>
       </div>
 
       <div id="m-hero" class="clip kb" data-start="12.2" data-duration="4.2" data-track-index="0" data-layout-allow-overflow>
-        <img id="p-hero" class="bg" src="assets/after3.jpg" alt="Finished patio cover over the pool deck" />
+        <img id="p-hero" class="bg" src="assets/after6.jpg" alt="Sunroom interior with windows on three sides" />
+      </div>
+
+      <div id="m-m1" class="clip kb" data-start="16.4" data-duration="1.6" data-track-index="0" data-layout-allow-overflow>
+        <img id="p-m1" class="bg" src="assets/after2.jpg" alt="Sunroom exterior from the yard" />
+      </div>
+      <div id="m-m2" class="clip kb" data-start="18" data-duration="1.6" data-track-index="0" data-layout-allow-overflow>
+        <img id="p-m2" class="bg" src="assets/after4.jpg" alt="Sunroom interior corner" />
       </div>
 
       <!-- SHADE over photos (track 1) -->
-      <div id="shade" class="clip shade" data-start="0" data-duration="16.4" data-track-index="1"></div>
+      <div id="shade" class="clip shade" data-start="0" data-duration="19.6" data-track-index="1"></div>
       <div id="hook-dim" class="clip" data-start="0" data-duration="3" data-track-index="1" style="background: rgba(61,53,39,0.6)"></div>
 
       <!-- LOGO BUG (track 2) -->
-      <div id="bug-wrap" class="clip" data-start="0" data-duration="16.4" data-track-index="2">
+      <div id="bug-wrap" class="clip" data-start="0" data-duration="19.6" data-track-index="2">
         <div class="bug" id="bug"><img src="assets/brand/logo-compact-h-reversed.png" alt="Golden Patio" /></div>
       </div>
 
@@ -124,55 +131,62 @@
       <section id="s1" class="clip" data-start="0" data-duration="3" data-track-index="3">
         <div class="hook">
           <div class="eyebrow" id="s1-e">BEFORE &amp; AFTER</div>
-          <h1 class="headline" id="s1-h">From rubble to <em>shade.</em></h1>
+          <h1 class="headline" id="s1-h">From open patio to <em>sunroom.</em></h1>
         </div>
       </section>
 
       <section id="s2" class="clip" data-start="3" data-duration="4.6" data-track-index="3">
         <div class="card" id="s2-cb">
           <div class="eyebrow" id="s2-be">DAY ONE</div>
-          <h2 class="headline" id="s2-bh">Old cover <em>torn out.</em></h2>
+          <h2 class="headline" id="s2-bh">Just a <em>bare slab.</em></h2>
           <span class="rule" id="s2-br"></span>
         </div>
         <div class="card" id="s2-ca">
           <div class="eyebrow" id="s2-ae">THE RESULT</div>
-          <h2 class="headline" id="s2-ah">A brand-new <em>patio&nbsp;cover.</em></h2>
+          <h2 class="headline" id="s2-ah">A brand-new <em>sunroom.</em></h2>
           <span class="rule" id="s2-ar"></span>
         </div>
       </section>
 
       <section id="s3" class="clip" data-start="7.6" data-duration="4.6" data-track-index="3">
         <div class="card" id="s3-cb">
-          <div class="eyebrow" id="s3-be">DEMO DAY</div>
-          <h2 class="headline" id="s3-bh">Rubble <em>everywhere.</em></h2>
+          <div class="eyebrow" id="s3-be">THE CORNER</div>
+          <h2 class="headline" id="s3-bh">Open to the <em>elements.</em></h2>
           <span class="rule" id="s3-br"></span>
         </div>
         <div class="card" id="s3-ca">
           <div class="eyebrow" id="s3-ae">FINISHED</div>
-          <h2 class="headline" id="s3-ah">Lights &amp; fan <em>built&nbsp;in.</em></h2>
+          <h2 class="headline" id="s3-ah">Fully <em>enclosed.</em></h2>
           <span class="rule" id="s3-ar"></span>
         </div>
       </section>
 
       <section id="s4" class="clip" data-start="12.2" data-duration="4.2" data-track-index="3">
         <div class="card">
-          <h2 class="headline" id="s4-h">Ready for <em>summer.</em></h2>
+          <h2 class="headline" id="s4-h">Step <em>inside.</em></h2>
           <span class="rule" id="s4-r"></span>
           <div class="checks">
-            <div class="check" id="c1"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>Built-in LED lighting</div>
-            <div class="check" id="c2"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>Ceiling fan installed</div>
-            <div class="check" id="c3"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>No painting, no rot</div>
+            <div class="check" id="c1"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>Sliding windows all around</div>
+            <div class="check" id="c2"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>Ceiling lights &amp; outlets</div>
+            <div class="check" id="c3"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#3d3527" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>A room you can use year-round</div>
           </div>
         </div>
       </section>
 
+      <section id="s6" class="clip" data-start="16.4" data-duration="3.2" data-track-index="3">
+        <div class="card">
+          <h2 class="headline" id="s6-h">More room <em>to&nbsp;live.</em></h2>
+          <span class="rule" id="s6-r"></span>
+        </div>
+      </section>
+
       <!-- CTA -->
-      <section id="s5" class="clip cta" data-start="16.4" data-duration="3.6" data-track-index="3">
+      <section id="s5" class="clip cta" data-start="19.6" data-duration="3.6" data-track-index="3">
         <div class="cta-frame" id="s5-frame"></div>
         <div class="cta-inner">
           <div class="cta-logo" id="s5-logo"><img src="assets/brand/logo-primary-reversed.png" alt="Golden Patio Restoration" /></div>
           <div class="cta-rule" id="s5-rule"></div>
-          <div class="cta-ask" id="s5-ask">Get your <em>free</em> patio cover estimate</div>
+          <div class="cta-ask" id="s5-ask">Get your <em>free</em> sunroom estimate</div>
           <div class="cta-phone" id="s5-phone">805-889-0869</div>
           <div class="cta-fine" id="s5-fine">LIC. 971127</div>
         </div>
@@ -220,20 +234,26 @@
       compare("pb", 7.6, 8.9); tags("tb", 7.6, 8.9); caption("s3", 7.6, 8.9, 4.6);
 
       // Hero: pan across the wide landscape shot
-      tl.fromTo("#p-hero", { xPercent: 6, scale: 1.05 }, { xPercent: -6, scale: 1.05, duration: 4.2, ease: "none" }, 12.2);
+      tl.fromTo("#p-hero", { scale: 1.0 }, { scale: 1.12, duration: 4.2, ease: "none" }, 12.2);
       tl.fromTo("#s4-h", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: out }, 12.4);
       tl.fromTo("#s4-r", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 12.7);
       ["#c1", "#c2", "#c3"].forEach((c, i) => {
         tl.fromTo(c, { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: out }, 12.95 + i * 0.35);
       });
 
+      // Montage
+      tl.fromTo("#p-m1", { scale: 1.12, xPercent: 2 }, { scale: 1.02, xPercent: -2, duration: 1.6, ease: "none" }, 16.4);
+      tl.fromTo("#p-m2", { scale: 1.02 }, { scale: 1.12, duration: 1.6, ease: "none" }, 18);
+      tl.fromTo("#s6-h", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: out }, 16.55);
+      tl.fromTo("#s6-r", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 16.85);
+
       // CTA
-      tl.fromTo("#s5-frame", { scale: 1.04, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: out }, 16.4);
-      wipe("#s5-logo", 16.5, 0.8);
-      tl.fromTo("#s5-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 17.0);
-      tl.fromTo("#s5-ask", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: out }, 17.15);
-      tl.fromTo("#s5-phone", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 17.45);
-      tl.fromTo("#s5-fine", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 17.85);
+      tl.fromTo("#s5-frame", { scale: 1.04, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: out }, 19.6);
+      wipe("#s5-logo", 19.7, 0.8);
+      tl.fromTo("#s5-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 20.2);
+      tl.fromTo("#s5-ask", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: out }, 20.35);
+      tl.fromTo("#s5-phone", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 20.65);
+      tl.fromTo("#s5-fine", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 21.05);
 
       window.__timelines["main"] = tl;
     </script>
