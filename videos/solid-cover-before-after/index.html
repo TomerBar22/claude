@@ -69,75 +69,80 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="21" data-width="1080" data-height="1920">
 
       <!-- MEDIA (track 0) -->
-      <!-- Pair 1: bare slab from the corner (before) -> new cover from the corner (after) -->
-      <div id="m1" class="clip stage" data-start="0" data-duration="6" data-track-index="0" data-layout-allow-overflow>
+      <!-- Opener: the bare patio from the corner -->
+      <div id="m0" class="clip stage" data-start="0" data-duration="3.2" data-track-index="0" data-layout-allow-overflow>
+        <img id="h0" class="bg" src="assets/photos/before-1.jpg" alt="Bare concrete patio in full sun before the build" />
+      </div>
+
+      <!-- Same-angle pair: after photo warped to the before photo's camera (house wall, door and windows line up) -->
+      <div id="m1" class="clip stage" data-start="3.2" data-duration="5.2" data-track-index="0" data-layout-allow-overflow>
         <div class="zoom" id="z1">
-          <img class="bg" src="assets/photos/after-1.jpg" alt="New solid patio cover along the back of the house" />
-          <div class="top" id="t1"><img class="bg" src="assets/photos/before-1.jpg" alt="Bare concrete patio in full sun before the build" /></div>
+          <img class="bg" src="assets/photos/after-2-aligned.jpg" alt="Finished patio cover from the same spot" />
+          <div class="top" id="t1"><img class="bg" src="assets/photos/before-2-aligned.jpg" alt="Back of the house with no cover" /></div>
         </div>
         <div class="edge" id="e1"></div>
       </div>
 
-      <!-- Pair 2: straight on (before) -> straight on, finished (after) -->
-      <div id="m2" class="clip stage" data-start="6" data-duration="4.4" data-track-index="0" data-layout-allow-overflow>
-        <div class="zoom" id="z2">
-          <img class="bg" src="assets/photos/after-2.jpg" alt="Finished patio cover, straight on" />
-          <div class="top" id="t2"><img class="bg" src="assets/photos/before-2.jpg" alt="Back of the house with no cover" /></div>
-        </div>
-        <div class="edge" id="e2"></div>
+      <!-- After shots -->
+      <div id="m2" class="clip stage" data-start="8.4" data-duration="3" data-track-index="0" data-layout-allow-overflow>
+        <img id="h2" class="bg" src="assets/photos/after-1.jpg" alt="New solid patio cover along the back of the house" />
       </div>
-
-      <!-- Hero shots -->
-      <div id="m3" class="clip stage" data-start="10.4" data-duration="3.2" data-track-index="0" data-layout-allow-overflow>
-        <img id="h1" class="bg" src="assets/photos/hero-under.jpg" alt="Under the new cover: finished ceiling and fan" />
+      <div id="m3" class="clip stage" data-start="11.4" data-duration="3.2" data-track-index="0" data-layout-allow-overflow>
+        <img id="h3" class="bg" src="assets/photos/hero-under.jpg" alt="Under the new cover: finished ceiling and fan" />
       </div>
-      <div id="m4" class="clip stage" data-start="13.6" data-duration="2.8" data-track-index="0" data-layout-allow-overflow>
-        <img id="h2" class="bg" src="assets/photos/after-2.jpg" alt="Finished patio cover, full width" />
+      <div id="m4" class="clip stage" data-start="14.6" data-duration="2.8" data-track-index="0" data-layout-allow-overflow>
+        <img id="h4" class="bg" src="assets/photos/after-2.jpg" alt="Finished patio cover, full width" />
       </div>
 
       <!-- SHADE (track 1) -->
-      <div id="shade" class="clip shade" data-start="0" data-duration="16.4" data-track-index="1"></div>
+      <div id="shade" class="clip shade" data-start="0" data-duration="17.4" data-track-index="1"></div>
 
       <!-- LOGO BUG (track 2) -->
-      <div id="bug-wrap" class="clip" data-start="0" data-duration="16.4" data-track-index="2">
+      <div id="bug-wrap" class="clip" data-start="0" data-duration="17.4" data-track-index="2">
         <div class="bug" id="bug"><img src="assets/brand/logo-compact-h-reversed.png" alt="Golden Patio" /></div>
       </div>
 
       <!-- CHIPS (track 3) -->
-      <div id="chips1" class="clip" data-start="0" data-duration="6" data-track-index="3">
+      <div id="chips0" class="clip" data-start="0" data-duration="3.2" data-track-index="3">
+        <div class="chip chip-before" id="cb0">BEFORE</div>
+      </div>
+      <div id="chips1" class="clip" data-start="3.2" data-duration="5.2" data-track-index="3">
         <div class="chip chip-before" id="cb1">BEFORE</div>
         <div class="chip chip-after" id="ca1">AFTER</div>
       </div>
-      <div id="chips2" class="clip" data-start="6" data-duration="4.4" data-track-index="3">
-        <div class="chip chip-before" id="cb2">BEFORE</div>
+      <div id="chips2" class="clip" data-start="8.4" data-duration="3" data-track-index="3">
         <div class="chip chip-after" id="ca2">AFTER</div>
       </div>
 
       <!-- TEXT (track 4) -->
-      <section id="s1" class="clip" data-start="0" data-duration="6" data-track-index="4">
-        <div class="cap" id="s1a">
+      <section id="s0" class="clip" data-start="0" data-duration="3.2" data-track-index="4">
+        <div class="cap" id="s0a">
           <div class="eyebrow">THE BACKYARD</div>
           <h1 class="headline">Full sun and <em>zero shade.</em></h1>
         </div>
-        <div class="cap" id="s1b">
-          <div class="eyebrow">THE REVEAL</div>
-          <h2 class="headline">Now: <em>shade all day.</em></h2>
-        </div>
       </section>
 
-      <section id="s2" class="clip" data-start="6" data-duration="4.4" data-track-index="4">
-        <div class="cap" id="s2a">
+      <section id="s1" class="clip" data-start="3.2" data-duration="5.2" data-track-index="4">
+        <div class="cap" id="s1a">
+          <div class="eyebrow">SAME SPOT</div>
           <h2 class="headline">From <em>sun-baked…</em></h2>
         </div>
-        <div class="cap" id="s2b">
+        <div class="cap" id="s1b">
+          <div class="eyebrow">THE REVEAL</div>
           <h2 class="headline">…to <em>cool &amp; covered.</em></h2>
         </div>
       </section>
 
-      <section id="s3" class="clip" data-start="10.4" data-duration="3.2" data-track-index="4">
+      <section id="s2" class="clip" data-start="8.4" data-duration="3" data-track-index="4">
+        <div class="cap" id="s2a">
+          <h2 class="headline">Now: <em>shade all day.</em></h2>
+        </div>
+      </section>
+
+      <section id="s3" class="clip" data-start="11.4" data-duration="3.2" data-track-index="4">
         <div class="cap">
           <div class="eyebrow" id="s3-e">THE DETAILS</div>
           <h2 class="headline" id="s3-h">Built to <em>enjoy.</em></h2>
@@ -149,7 +154,7 @@
         </div>
       </section>
 
-      <section id="s4" class="clip" data-start="13.6" data-duration="2.8" data-track-index="4">
+      <section id="s4" class="clip" data-start="14.6" data-duration="2.8" data-track-index="4">
         <div class="cap">
           <h2 class="headline" id="s4-h">Shade that <em>lasts.</em></h2>
           <span class="rule" id="s4-r"></span>
@@ -158,7 +163,7 @@
       </section>
 
       <!-- CTA -->
-      <section id="s5" class="clip cta" data-start="16.4" data-duration="3.6" data-track-index="4">
+      <section id="s5" class="clip cta" data-start="17.4" data-duration="3.6" data-track-index="4">
         <div class="cta-frame" id="s5-frame"></div>
         <div class="cta-inner">
           <div class="cta-logo" id="s5-logo"><img src="assets/brand/logo-primary-reversed.png" alt="Golden Patio Restoration" /></div>
@@ -179,66 +184,60 @@
       // Logos reveal with a wipe, never a fade (guide: no reduced opacity on the mark)
       const wipe = (sel, t, d = 0.7) =>
         tl.fromTo(sel, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: d, ease: "power2.inOut" }, t);
-
       const rise = (sel, t, d = 0.6, y = 60) =>
         tl.fromTo(sel, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: out }, t);
       const leave = (sel, t) =>
         tl.to(sel, { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" }, t);
 
-      // Before -> after wipe: the before layer is clipped away left-to-right while a gold edge rides the seam
-      function reveal(top, edge, t, d = 1.1) {
-        tl.fromTo(top, { clipPath: "inset(0% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 100%)", duration: d, ease: "power2.inOut" }, t);
-        tl.fromTo(edge, { x: 0, opacity: 1 }, { x: W + 12, duration: d, ease: "power2.inOut" }, t);
-      }
-
-      // ---- Pair 1 (0 - 6s)
-      tl.fromTo("#z1", { scale: 1.0 }, { scale: 1.1, duration: 6, ease: "none" }, 0);
-      tl.set("#e1", { opacity: 0 }, 0);
+      // ---- Opener (0 - 3.2s)
+      tl.fromTo("#h0", { scale: 1.0 }, { scale: 1.1, duration: 3.2, ease: "none" }, 0);
       wipe("#bug", 0.2);
-      tl.fromTo("#cb1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 0.3);
-      rise("#s1a", 0.45, 0.7);
-      leave("#s1a", 2.5);
-      tl.to("#cb1", { opacity: 0, duration: 0.3 }, 2.6);
-      reveal("#t1", "#e1", 2.7);
-      tl.fromTo("#ca1", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 3.6);
-      rise("#s1b", 3.7, 0.7);
-      leave(["#s1b", "#ca1"], 5.7);
+      tl.fromTo("#cb0", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 0.3);
+      rise("#s0a", 0.45, 0.7);
+      leave(["#s0a", "#cb0"], 2.9);
 
-      // ---- Pair 2 (6 - 10.4s)
-      tl.fromTo("#z2", { scale: 1.1 }, { scale: 1.0, duration: 4.4, ease: "none" }, 6);
-      tl.set("#e2", { opacity: 0 }, 6);
-      tl.fromTo("#cb2", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: out }, 6.1);
-      rise("#s2a", 6.15, 0.6);
-      leave("#s2a", 7.4);
-      tl.to("#cb2", { opacity: 0, duration: 0.3 }, 7.45);
-      reveal("#t2", "#e2", 7.55);
-      tl.fromTo("#ca2", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.4, ease: out }, 8.45);
-      rise("#s2b", 8.5, 0.6);
-      leave(["#s2b", "#ca2"], 10.1);
+      // ---- Same-angle reveal (3.2 - 8.4s). The zoom wraps both layers so they stay aligned.
+      tl.fromTo("#z1", { scale: 1.0 }, { scale: 1.08, duration: 5.2, ease: "none" }, 3.2);
+      tl.set("#e1", { opacity: 0 }, 3.2);
+      tl.fromTo("#cb1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 3.3);
+      rise("#s1a", 3.4, 0.6);
+      leave("#s1a", 4.9);
+      tl.to("#cb1", { opacity: 0, duration: 0.3 }, 5.0);
+      tl.fromTo("#t1", { clipPath: "inset(0% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 100%)", duration: 1.6, ease: "power2.inOut" }, 5.1);
+      tl.fromTo("#e1", { x: 0, opacity: 1 }, { x: W + 12, duration: 1.6, ease: "power2.inOut" }, 5.1);
+      tl.fromTo("#ca1", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 6.4);
+      rise("#s1b", 6.5, 0.6);
+      leave(["#s1b", "#ca1"], 8.1);
 
-      // ---- Hero front (10.4 - 13.6s): slow push in under the cover
-      tl.fromTo("#h1", { scale: 1.0 }, { scale: 1.12, duration: 3.2, ease: "none" }, 10.4);
-      rise("#s3-e", 10.55, 0.45, 24);
-      rise("#s3-h", 10.7, 0.6);
+      // ---- After, side view (8.4 - 11.4s)
+      tl.fromTo("#h2", { scale: 1.1, xPercent: 2 }, { scale: 1.0, xPercent: -1, duration: 3, ease: "none" }, 8.4);
+      tl.fromTo("#ca2", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 8.5);
+      rise("#s2a", 8.6, 0.6);
+      leave(["#s2a", "#ca2"], 11.1);
+
+      // ---- Under the cover (11.4 - 14.6s)
+      tl.fromTo("#h3", { scale: 1.0 }, { scale: 1.12, duration: 3.2, ease: "none" }, 11.4);
+      rise("#s3-e", 11.55, 0.45, 24);
+      rise("#s3-h", 11.7, 0.6);
       ["#f1", "#f2", "#f3"].forEach((f, i) => {
-        tl.fromTo(f, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 11.15 + i * 0.25);
+        tl.fromTo(f, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 12.15 + i * 0.25);
       });
-      leave(["#s3-e", "#s3-h", "#f1", "#f2", "#f3"], 13.3);
+      leave(["#s3-e", "#s3-h", "#f1", "#f2", "#f3"], 14.3);
 
-      // ---- Hero angle (13.6 - 16.4s): lateral drift
-      tl.fromTo("#h2", { scale: 1.12, xPercent: 3 }, { scale: 1.04, xPercent: -2, duration: 2.8, ease: "none" }, 13.6);
-      rise("#s4-h", 13.75, 0.6);
-      tl.fromTo("#s4-r", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 14.15);
-      rise("#s4-s", 14.3, 0.5, 30);
-      leave(["#s4-h", "#s4-r", "#s4-s"], 16.1);
+      // ---- Full width (14.6 - 17.4s): lateral drift
+      tl.fromTo("#h4", { scale: 1.12, xPercent: 3 }, { scale: 1.04, xPercent: -2, duration: 2.8, ease: "none" }, 14.6);
+      rise("#s4-h", 14.75, 0.6);
+      tl.fromTo("#s4-r", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 15.15);
+      rise("#s4-s", 15.3, 0.5, 30);
+      leave(["#s4-h", "#s4-r", "#s4-s"], 17.1);
 
-      // ---- CTA (16.4 - 20s)
-      tl.fromTo("#s5-frame", { scale: 1.04, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: out }, 16.4);
-      wipe("#s5-logo", 16.5, 0.8);
-      tl.fromTo("#s5-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 17.0);
-      rise("#s5-ask", 17.15, 0.5, 30);
-      tl.fromTo("#s5-phone", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 17.45);
-      tl.fromTo("#s5-fine", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 17.85);
+      // ---- CTA (17.4 - 21s)
+      tl.fromTo("#s5-frame", { scale: 1.04, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: out }, 17.4);
+      wipe("#s5-logo", 17.5, 0.8);
+      tl.fromTo("#s5-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: out }, 18.0);
+      rise("#s5-ask", 18.15, 0.5, 30);
+      tl.fromTo("#s5-phone", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.6)" }, 18.45);
+      tl.fromTo("#s5-fine", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 18.85);
 
       window.__timelines["main"] = tl;
     </script>
