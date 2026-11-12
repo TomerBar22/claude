@@ -26,7 +26,9 @@ def clone(img, box, off, feather=18):
 
 name = src.rsplit('/',1)[-1].split('.')[0]
 img = np.array(Image.open(src).convert('RGB'))
-for box, off in FIX.get(name, []):
+for box, off in []:  # object removal disabled: patches looked uneven on the floor
+    pass
+for box, off in []:
     img = clone(img, box, off)
 im = Image.fromarray(img)
 b,c,s = TONE['interior' if name in ('after4','after5','after6') else 'exterior']
