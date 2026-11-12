@@ -31,7 +31,7 @@ for box, off in []:  # object removal disabled: patches looked uneven on the flo
 for box, off in []:
     img = clone(img, box, off)
 im = Image.fromarray(img)
-b,c,s = TONE['interior' if name in ('after4','after5','after6') else 'exterior']
+b,c,s = TONE['exterior']
 im = ImageEnhance.Brightness(im).enhance(b)
 im = ImageEnhance.Contrast(im).enhance(c)
 im = ImageEnhance.Color(im).enhance(s)
